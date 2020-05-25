@@ -1,0 +1,14 @@
+.Page1 {
+    background-color: #E3BDBB;
+    height: 1000px;
+    background-image: url(https://i.postimg.cc/CLRdMPk9/IMG-3871.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white;
+}
+
+.border {
+    border: solid 1px;
+    border-color: aqua;
+    margin: 30px;
+}
