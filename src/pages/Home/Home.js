@@ -3,7 +3,7 @@ import './Home.css';
 
 const Home = () => {
   return (
-    <body className="Home">
+    <div className="Home">
           <br></br><br></br><br></br>
       <div className="home-img">
         <div className="home-div">
@@ -11,7 +11,7 @@ const Home = () => {
           
         </div>
       </div>
-    </body>
+    </div>
   );
 }
 export default Home;

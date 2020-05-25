@@ -13,7 +13,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <body className="App">
+      <div className="App">
         <nav >
           <Link to="/">Home</Link>
           {' '}
@@ -64,7 +64,7 @@ class App extends React.Component {
           } />
 
         </Router>
-      </body>
+      </div>
     );
   }
 }
