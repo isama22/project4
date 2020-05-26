@@ -10,7 +10,7 @@ import Endpage2 from '../../pages/Endpage2/Endpage2';
 import Endpage3 from '../../pages/Endpage3/Endpage3';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
-import userService from '../../utils/userService';
+// import userService from '../../utils/userService';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser(),
+      // user: userService.getUser(),
     }
   }
 
