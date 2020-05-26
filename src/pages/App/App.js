@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App/App.css';
+import './App.css';
 import Home from '../../pages/Home/Home.js';
 import EnterPage from '../../pages/EnterPage/EnterPage';
 import dana1 from '../../pages/dana1/dana1';
