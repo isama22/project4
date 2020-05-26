@@ -24,16 +24,13 @@ function getUser() {
   return tokenService.getUserFromToken();
 }
 
-function getUserFromToken () {
-  const token = getToken();
-  return token ? JSON.parse(atob(token.split('.')[1])).user : null;
-}
+
 
 
 export default {
   signup,
   getUser,
-  getUserFromToken
+
 };
 
 
