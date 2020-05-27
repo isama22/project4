@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+// import NavBar from '../../components/NavBar/NavBar';
 import Home from '../../pages/Home/Home.js';
 import EnterPage from '../../pages/EnterPage/EnterPage';
 import dana1 from '../../pages/dana1/dana1';
@@ -22,12 +23,24 @@ class App extends React.Component {
     }
   }
 
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
+  handleSignup = () => {
+    this.setState({user: userService.getUser()});
+  }
+
   render() {
     return (
+      
       <div className="App">
-        <nav >
+         
+        <nav user={this.props.user}>
+          let nav = this.user ?
           <Link to="/">Home</Link>
-          {/* {' '}
+          {' '}
           <Link to="/enter">Enter Page</Link>
           {' '}
           <Link to="/endpage1">Endpage1</Link>
@@ -35,12 +48,19 @@ class App extends React.Component {
           <Link to="/endpage2">Endpage2</Link>
           {' '}
           <Link to="/endpage3">Endpage3</Link>
-          &nbsp;&nbsp;&nbsp; */}
+          {' '}
+          <Link to='' onClick={this.handleLogout}>LOG OUT</Link>
+          {' '}
+          <span>WELCOME, {this.props.user}</span>   
+          :
           <Link to="/login">login</Link>
           {' '}
           <Link to="/signup">sign up</Link>
+          {' '}
         </nav>
+        {/* <NavBar user={this.user} /> */}
         <Router>
+        {/* <NavBar user={this.user} handleLogout={this.handleLogout}/> */}
 
           {/* <Route exact path="/" component={Home} /> */}
           <Route exact path="/" render={(props) => (
