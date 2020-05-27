@@ -42,6 +42,7 @@ class App extends React.Component {
             <Home
               //passing user from app to home so i can access it in NavBar!! important!!
               user={this.state.user}
+              handleLogout={this.handleLogout}
               {...props} />
               )}/>
           <Route exact path="/enter" render={(props) => (
@@ -65,6 +66,7 @@ class App extends React.Component {
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage
               history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
               />}/>
           <Route exact path='/login' render={({ history }) =>
             <LoginPage

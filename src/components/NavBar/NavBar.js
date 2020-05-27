@@ -7,7 +7,7 @@ const NavBar  = (props) => {
             <div>
                 <Link to="/">Home</Link>
                 {' '}
-                <Link to=''>log out</Link>
+                <Link to='' onClick={props.handleLogout}>log out</Link>
                 &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
       <span className='NavBar-welcome'>logged in as: {props.user.name}</span>
             </div>
