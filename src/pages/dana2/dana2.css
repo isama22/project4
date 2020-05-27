@@ -1,0 +1,20 @@
+#main2 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-image: url("https://i.postimg.cc/YSdwWkwR/IMG-5712.jpg");
+    height: 1000px;
+    background-size: 75%;
+}
+
+#text2 {
+    margin-top: 220px
+}
+#line3 {
+    color: white;
+    text-decoration: none;
+}
+#line3:hover {
+    color: aqua;
+}

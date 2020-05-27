@@ -1,0 +1,23 @@
+#main {
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-image: url("https://i.postimg.cc/kGTT2St5/Screen-Shot-2020-05-27-at-1-17-33-PM.png");
+    height: 1000px;
+    background-size: cover;  
+
+    
+}
+
+#text {
+    margin: 170px;
+}
+#line2 {
+    color: white;
+    text-decoration: none;
+   
+}
+#line2:hover {
+    color: aqua;
+}

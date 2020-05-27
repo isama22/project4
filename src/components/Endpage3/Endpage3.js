@@ -1,12 +1,20 @@
 import React from 'react';
+import './EndPage3.css';
+import NavBar from '../../components/NavBar/NavBar';
 
-const Endpage3 = () => {
+const Endpage3 = (props) => {
   return (
-    <div>
-      <h1>Endpage3</h1>
-        In Memory of My Heavy Metal Years
+    <div className="behindmain">
+       <NavBar user={props.user} handleLogout={props.handleLogout}/>
+      <br></br>
+      <div className="main-div3">   
+       
+      <div className="p3">
+      <p id="headerp3">
+        <strong>In Memory of My Heavy Metal Years</strong>
         <br></br><br></br>
-        BY JEFF DERKSEN
+        <em>Jeff Derksen</em>
+      <p id="body">
         <br></br><br></br>
         There goes the
         aluminum, the antimony, the arsenic
@@ -28,7 +36,10 @@ const Endpage3 = () => {
         and on the steep
         majesterial streets
         that afford such views
-
+        </p>
+      </p>
+      </div>
+      </div>
       </div>
   );
 }

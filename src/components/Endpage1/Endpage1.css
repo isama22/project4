@@ -1,0 +1,46 @@
+.main-div {
+    background-color: #3333FF;
+    color: #E39D84;
+    height: 1000px;
+    background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
+    background-size: initial; 
+
+
+}
+
+.p {
+    width: 400px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    margin-left: 500px;
+    background-color: blue;
+    border: solid 2px;
+    border-color: white;
+
+}
+
+#headerp {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+}
+p {
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+#link {
+    /* display: flex;
+    justify-content: flex-end;
+    margin: 30px; */
+    color: white;
+    text-decoration: none;
+}
+
+#link:hover {
+    color: orangered;
+}
