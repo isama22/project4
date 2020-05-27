@@ -14,7 +14,7 @@ import Endpage3 from '../../components/Endpage3/Endpage3';
 import SignupPage from '../../components/SignupPage/SignupPage';
 import LoginPage from '../../components/LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
