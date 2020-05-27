@@ -1,9 +1,11 @@
 import React from 'react';
 import './Endpage1.css';
+import NavBar from '../../components/NavBar/NavBar';
 
-const Endpage1 = () => {
+const Endpage1 = (props) => {
   return (
     <div className="main-div">
+      <NavBar user={props.user} handleLogout={props.handleLogout}/>
       <br></br><br></br><br></br><br></br>
         <div className="p"> 
       <p id="headerp">
@@ -25,7 +27,10 @@ const Endpage1 = () => {
         stupid, living. Let me go & watch something
         moving several images some of them symbolize humility broken
         postures bloodshot eyes, intimately talking through this
-        publicly I am not developing at all but just the same…
+        publicly I am not developing at all but just the same
+        <a href="https://www.poetryfoundation.org/poems/55982/dont-let-me-be-wistful" target="_blank" rel="noopener noreferrer" id="link">...</a>
+        
+      
   
       </p>
 
@@ -39,7 +44,7 @@ const Endpage1 = () => {
       <br></br><br></br>
       
     </div>
-    <a href="https://www.poetryfoundation.org/poems/55982/dont-let-me-be-wistful" target="_blank" rel="noopener noreferrer" id="link">visit the full piece</a>
+
     </div>
   );
 }

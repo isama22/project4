@@ -1,9 +1,11 @@
 import React from 'react';
 import './EndPage3.css';
+import NavBar from '../../components/NavBar/NavBar';
 
-const Endpage3 = () => {
+const Endpage3 = (props) => {
   return (
     <div className="behindmain">
+       <NavBar user={props.user} handleLogout={props.handleLogout}/>
       <br></br>
       <div className="main-div3">   
        

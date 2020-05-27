@@ -34,12 +34,13 @@ form {
     justify-content: center;
 }
 #link {
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
-    margin: 30px;
+    margin: 30px; */
     color: white;
+    text-decoration: none;
 }
 
 #link:hover {
-    color:red;
+    color: orangered;
 }

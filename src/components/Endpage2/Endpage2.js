@@ -1,9 +1,11 @@
 import React from 'react';
 import './Endpage2.css';
+import NavBar from '../../components/NavBar/NavBar';
 
-const Endpage2 = () => {
+const Endpage2 = (props) => {
   return (
     <div className="main-div2">
+      <NavBar user={props.user} handleLogout={props.handleLogout}/>
       <br></br><br></br><br></br><br></br>
       <div className="p2">
         <p id="headerp2">

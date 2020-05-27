@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-// import NavBar from '../../components/NavBar/NavBar';
 import Home from '../../pages/Home/Home.js';
 import EnterPage from '../../pages/EnterPage/EnterPage';
 import dana1 from '../../pages/dana1/dana1';
@@ -32,80 +31,52 @@ class App extends React.Component {
   }
 
   handleSignupOrLogin = () => {
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   render() {
     return (
-      
       <div className="App">
-         
-        <nav user={this.props.user}>
-          let nav = this.user ?
-          <Link to="/">Home</Link>
-          {' '}
-          <Link to="/enter">Enter Page</Link>
-          {' '}
-          <Link to="/endpage1">Endpage1</Link>
-          {' '}
-          <Link to="/endpage2">Endpage2</Link>
-          {' '}
-          <Link to="/endpage3">Endpage3</Link>
-          {' '}
-          <Link to='' onClick={this.handleLogout}>LOG OUT</Link>
-          {' '}
-          <span>WELCOME, {this.props.user}</span>   
-          :
-          <Link to="/login">login</Link>
-          {' '}
-          <Link to="/signup">sign up</Link>
-          {' '}
-        </nav>
-        {/* <NavBar user={this.user} /> */}
         <Router>
-        {/* <NavBar user={this.user} handleLogout={this.handleLogout}/> */}
-
-          {/* <Route exact path="/" component={Home} /> */}
           <Route exact path="/" render={(props) => (
-            <Home {...props} />
-          )} />
-
+            <Home
+              //passing user from app to home so i can access it in NavBar!! important!!
+              user={this.state.user}
+              {...props} />
+              )}/>
           <Route exact path="/enter" render={(props) => (
             <EnterPage {...props} />
-          )} />
-
+              )}/>
           <Route exact path="/endpage1" render={(props) => (
-            <Endpage1 {...props} />
-          )} />
-
+            <Endpage1
+              user={this.state.user}
+              {...props} />
+              )}/>
           <Route exact path="/endpage2" render={(props) => (
-            <Endpage2 {...props} />
-          )} />
-
+            <Endpage2 
+            user={this.state.user}
+            {...props} />
+              )}/>
           <Route exact path="/endpage3" render={(props) => (
-            <Endpage3 {...props} />
-          )} />
-
+            <Endpage3 
+            user={this.state.user}
+            {...props} />
+              )}/>
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage
               history={history}
-            />
-          } />
-
+              />}/>
           <Route exact path='/login' render={({ history }) =>
             <LoginPage
-            history={history}
-            handleSignupOrLogin={this.handleSignupOrLogin}
-            />
-          } />
-          
+              history={history}
+              handleSignupOrLogin={this.handleSignupOrLogin}
+              />}/>
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
           <Route exact path="/dana3" component={dana3} />
           <Route exact path="/carson1" component={carson1} />
           <Route exact path="/carson2" component={carson2} />
           <Route exact path="/carson3" component={carson3} />
-
         </Router>
       </div>
     );
