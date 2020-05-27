@@ -39,7 +39,12 @@ const Endpage2 = (props) => {
           She lives on a moor in the north.
           She lives alone.
           Spring opens like a blade there.
+          <a href="https://www.poetryfoundation.org/poems/48636/the-glass-essay" target="_blank" rel="noopener noreferrer" id="link">...</a>
         </p>
+        <form>
+        <input value="add your own line"/>
+        <button>submit</button>
+      </form>
       </div>
 
     </div>

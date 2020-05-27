@@ -11,7 +11,6 @@ const Home = (props) => {
           <br></br><br></br><br></br>
       <div className="home-img">
         <div className="home-div">
-          {/* <p className="enter"><em>enter</em></p> */}
           <Link to="/enter" className="enter"><em>enter</em></Link>
           <Router>
           <Route exact path="/enter" render={(props) => (

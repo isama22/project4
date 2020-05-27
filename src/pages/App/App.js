@@ -8,13 +8,16 @@ import dana3 from '../../pages/dana3/dana3';
 import carson1 from '../../pages/carson1/carson1';
 import carson2 from '../../pages/carson2/carson2';
 import carson3 from '../../pages/carson3/carson3';
+import derksen1 from '../../pages/derksen1/derksen1';
+import derksen2 from '../../pages/derksen2/derksen2';
+import derksen3 from '../../pages/derksen3/derksen3';
 import Endpage1 from '../../components/Endpage1/Endpage1';
 import Endpage2 from '../../components/Endpage2/Endpage2';
 import Endpage3 from '../../components/Endpage3/Endpage3';
 import SignupPage from '../../components/SignupPage/SignupPage';
 import LoginPage from '../../components/LoginPage/LoginPage';
 import userService from '../../utils/userService';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -79,6 +82,9 @@ class App extends React.Component {
           <Route exact path="/carson1" component={carson1} />
           <Route exact path="/carson2" component={carson2} />
           <Route exact path="/carson3" component={carson3} />
+          <Route exact path="/derksen1" component={derksen1} />
+          <Route exact path="/derksen2" component={derksen2} />
+          <Route exact path="/derksen3" component={derksen3} />
         </Router>
       </div>
     );

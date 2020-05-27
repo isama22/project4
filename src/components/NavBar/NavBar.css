@@ -1,0 +1,12 @@
+.nav {
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Josefin Sans', sans-serif;
+    text-decoration: none;
+
+  }
+
+  .home {
+      margin-left: 300px;
+  }

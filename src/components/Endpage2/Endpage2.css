@@ -10,10 +10,16 @@
 .p2 {
     width: 400px;
     height:600px;
-    background-color: #E39D84;
+    background-color: rgba(227, 157, 132, 0.87);
     display: flex;
     flex-direction: column;
     margin-left: 500px;
     border: solid 2px;
     border-color: orangered;
+}
+
+#headerp2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
 }

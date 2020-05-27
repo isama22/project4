@@ -1,34 +1,31 @@
-.behindmain {
+.behindmain4 {
     background-color: maroon;
     height: 1000px;    
-    background-image: url("https://i.postimg.cc/FKGV0xLv/Screen-Shot-2020-05-27-at-12-45-22-AM.png");   
-    background-size: 1000px;
+    background-image: url("https://i.postimg.cc/9XBw0fy3/Screen-Shot-2020-05-27-at-12-41-22-AM.png");   
+    background-size: cover;
 }
 
 
-.main-div3 {
-
-    color: #3333FF;
- 
-    
+.main-div4 {
+    color: #c46a68;
     z-index: -1;
     margin-left: 300px;
 }
 
-.p3 {
+.p4 {
     width: 400px;
     height:700px;
-    background-color: #E39D84;
+    background-color: rgb(41,0,0);
     display: flex;
     flex-direction: column;
     margin-left: 200px;
     margin-top: 80px;
     border: solid 2px;
-    border-color: orangered;
+    border-color: #540b06;
     z-index: 1;
 }
 
-#body {
+#body4 {
     width: 200px;
 
 }

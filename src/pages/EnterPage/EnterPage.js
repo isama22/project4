@@ -2,6 +2,7 @@ import React from 'react';
 import './EnterPage.css';
 import dana1 from '../../pages/dana1/dana1';
 import carson1 from '../../pages/carson1/carson1';
+import derksen1 from '../../pages/derksen1/derksen1';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const EnterPage = () => {
@@ -16,11 +17,12 @@ const EnterPage = () => {
 
           <Link id="p2" to="/carson1">I can hear little clicks inside my dream.</Link>
           
-
-          <p id="p3">There goes the</p>
+          <Link id="p2" to="/derksen1">There goes the</Link>
+          
           <Router>
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/carson1" component={carson1} />
+          <Route exact path="/derksen1" component={derksen1} />
           </Router>
         </div>
       </div>

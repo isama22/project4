@@ -4,17 +4,17 @@ import NavBar from '../../components/NavBar/NavBar';
 
 const Endpage3 = (props) => {
   return (
-    <div className="behindmain">
+    <div className="behindmain4">
        <NavBar user={props.user} handleLogout={props.handleLogout}/>
       <br></br>
-      <div className="main-div3">   
+      <div className="main-div4">   
        
-      <div className="p3">
-      <p id="headerp3">
+      <div className="p4">
+      <p id="headerp4">
         <strong>In Memory of My Heavy Metal Years</strong>
         <br></br><br></br>
         <em>Jeff Derksen</em>
-      <p id="body">
+      <p id="body4">
         <br></br><br></br>
         There goes the
         aluminum, the antimony, the arsenic
@@ -36,8 +36,13 @@ const Endpage3 = (props) => {
         and on the steep
         majesterial streets
         that afford such views
+        <a href="https://www.poetryfoundation.org/poems/146552/in-memory-of-my-heavy-metal-years" target="_blank" rel="noopener noreferrer" id="link">...</a>
         </p>
       </p>
+      <form>
+        <input value="add your own line"/>
+        <button>submit</button>
+      </form>
       </div>
       </div>
       </div>
