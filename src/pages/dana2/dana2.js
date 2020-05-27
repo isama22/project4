@@ -7,6 +7,9 @@ const dana2 = () => {
 
   return (
     <div id="main2">
+      <div id="text2">
+
+      
       {/* <p id="line3">
       at the ready then subsume their diverging constituent parts
       </p> */}
@@ -14,6 +17,7 @@ const dana2 = () => {
       <Router>
         <Route exact path="/dana3" component={dana3} />
       </Router>
+      </div>
       </div>
   );
 }

@@ -2,14 +2,20 @@
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-image: url("https://i.postimg.cc/YSdwWkwR/IMG-5712.jpg");
     height: 1000px;
-    background-size: 75%;
+    background-size: 75%;    
+    
+}
+
+#text {
+    margin: 170px;
 }
 #line2 {
     color: white;
     text-decoration: none;
+   
 }
 #line2:hover {
     color: aqua;

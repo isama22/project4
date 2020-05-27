@@ -1,12 +1,13 @@
 import React from 'react';
 import './dana3.css';
-import Endpage1 from '../../pages/Endpage1/Endpage1';
+import Endpage1 from '../../components/Endpage1/Endpage1';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const dana3 = () => {
 
   return (
     <div id="main3">
+      <div id="text3">
       {/* <p id="line4">
       long ambivalent talks into midnight, all those
       </p> */}
@@ -16,6 +17,7 @@ const dana3 = () => {
             <Endpage1 {...props} />
           )} />
       </Router>
+         </div>
       </div>
   );
 }

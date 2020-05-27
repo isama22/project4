@@ -6,7 +6,7 @@ const dana1 = () => {
 
   return (
     <div id="main">
-      <div>
+      <div id="text">
         <Link id="line2" to="/dana2">is contained heat like things keep applicable boxes</Link>
         <Router>
           <Route exact path="/dana2" component={dana2} />

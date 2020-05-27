@@ -1,0 +1,34 @@
+.behindmain {
+    background-color: maroon;
+    height: 1000px;    
+    background-image: url("https://i.postimg.cc/FKGV0xLv/Screen-Shot-2020-05-27-at-12-45-22-AM.png");   
+    background-size: 1000px;
+}
+
+
+.main-div3 {
+
+    color: #3333FF;
+ 
+    
+    z-index: -1;
+    margin-left: 300px;
+}
+
+.p3 {
+    width: 400px;
+    height:700px;
+    background-color: #E39D84;
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-top: 80px;
+    border: solid 2px;
+    border-color: orangered;
+    z-index: 1;
+}
+
+#body {
+    width: 200px;
+
+}

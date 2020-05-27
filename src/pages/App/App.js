@@ -6,11 +6,14 @@ import EnterPage from '../../pages/EnterPage/EnterPage';
 import dana1 from '../../pages/dana1/dana1';
 import dana2 from '../../pages/dana2/dana2';
 import dana3 from '../../pages/dana3/dana3';
-import Endpage1 from '../../pages/Endpage1/Endpage1';
-import Endpage2 from '../../pages/Endpage2/Endpage2';
-import Endpage3 from '../../pages/Endpage3/Endpage3';
-import SignupPage from '../SignupPage/SignupPage';
-import LoginPage from '../LoginPage/LoginPage';
+import carson1 from '../../pages/carson1/carson1';
+import carson2 from '../../pages/carson2/carson2';
+import carson3 from '../../pages/carson3/carson3';
+import Endpage1 from '../../components/Endpage1/Endpage1';
+import Endpage2 from '../../components/Endpage2/Endpage2';
+import Endpage3 from '../../components/Endpage3/Endpage3';
+import SignupPage from '../../components/SignupPage/SignupPage';
+import LoginPage from '../../components/LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -28,7 +31,7 @@ class App extends React.Component {
     this.setState({ user: null });
   }
 
-  handleSignup = () => {
+  handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
   }
 
@@ -89,14 +92,19 @@ class App extends React.Component {
             />
           } />
 
-          <Route exact path='/login' render={() =>
+          <Route exact path='/login' render={({ history }) =>
             <LoginPage
+            history={history}
+            handleSignupOrLogin={this.handleSignupOrLogin}
             />
           } />
           
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
           <Route exact path="/dana3" component={dana3} />
+          <Route exact path="/carson1" component={carson1} />
+          <Route exact path="/carson2" component={carson2} />
+          <Route exact path="/carson3" component={carson3} />
 
         </Router>
       </div>

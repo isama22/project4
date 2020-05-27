@@ -11,8 +11,15 @@ class SignupForm extends Component {
     passwordConf: ''
   };
 
+  // handleChange = (e) => {
+  //   this.props.updateMessage('');
+  //   this.setState({
+  //     // Using ES2015 Computed Property Names
+  //     [e.target.name]: e.target.value
+  //   });
+  // }
+
   handleChange = (e) => {
-    this.props.updateMessage('');
     this.setState({
       // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
@@ -23,7 +30,7 @@ class SignupForm extends Component {
     e.preventDefault();
     try {
       await userService.signup(this.state);
-      this.props.handleSignup();
+      this.props.handleSignupOrLogin();
       // Successfully signed up - show GamePage
       this.props.history.push('/');
     } catch (err) {
