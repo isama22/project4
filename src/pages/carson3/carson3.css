@@ -1,0 +1,35 @@
+#bgcolor {
+    background-color: thistle;
+    height: 1000px;
+    background-image: url("https://i.postimg.cc/HWZ4MmPV/Screen-Shot-2020-05-28-at-1-59-20-AM.png");
+    background-size: cover;
+   
+}
+#main3-c {
+   
+   display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-items: center; */
+    background-image: url("https://i.postimg.cc/zfyPCc6T/Screen-Shot-2020-05-16-at-12-15-40-AM.png");
+    /* height: 1000px; */
+    background-size: initial;
+    background-repeat: no-repeat;
+    margin-left: 400px;
+    /* margin-top: 200px; */
+    height: 800px;
+}
+
+#text3-c {
+    margin-top: 280px;
+    margin-right: 400px;
+   
+
+}
+#line4-c {
+    color: black;
+    text-decoration: none;
+}
+#line4-c:hover {
+    color: aqua;
+}

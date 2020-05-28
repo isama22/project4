@@ -1,0 +1,23 @@
+#main-c {
+    color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-image: url("https://i.postimg.cc/Nf1d546f/Screen-Shot-2020-03-17-at-9-18-42-PM.png");
+    height: 1000px;
+    background-size: cover;  
+
+    
+}
+
+#text-c {
+    margin: 170px;
+}
+#line2-c {
+    color: white;
+    text-decoration: none;
+   
+}
+#line2-c:hover {
+    color: orange;
+}
