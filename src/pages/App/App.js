@@ -21,11 +21,40 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      user: userService.getUser(),
-    }
+    user: userService.getUser(),
+    posts: [],
+    newPost: '',
+    formInvalid: true
+  }
+  }
+  formRef = React.createRef();
+
+
+  addPost = (e) => {
+    e.preventDefault();
+    if (!this.formRef.current.checkValidity()) return;
+   // Using the "function" approach because relying on existing state
+   this.setState(state => ({
+    // Always replace, don't mutate top-level state properties
+    posts: [...state.posts, state.newPost],
+    // Reset the inputs for better UX
+    newPost: {post: 'text'}
+  }));
+  }
+
+  handleChange = e => {
+    const newPost = { ...this.state.newSkill }
+    newPost[e.target.name] = e.target.value;
+    e.persist();
+    // console.log(e.target);
+    this.setState({
+      newPost,
+      // console.log(e.target.checkValidity())
+      formInvalid: !this.formRef.current.checkValidity()
+   })
   }
 
   handleLogout = () => {
@@ -54,6 +83,11 @@ class App extends React.Component {
           <Route exact path="/endpage1" render={(props) => (
             <Endpage1
               user={this.state.user}
+              addPost={this.state.addPost}
+              handleChange={this.handleChange}
+              posts={this.state.posts}
+              newPost={this.state.newPost}
+              formRef={this.formRef}
               {...props} />
               )}/>
           <Route exact path="/endpage2" render={(props) => (
@@ -86,8 +120,35 @@ class App extends React.Component {
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
         </Router>
+
+        {/* <section>
+         <h2>add post</h2>
+         <hr />
+         {this.state.posts.map(p => (
+           <article key={p.post}>
+             <div>{p.post}</div>
+             <div>{p.text}</div>
+           </article>
+         ))}
+         <form ref={this.formRef} onSubmit={this.addpost}>
+           <label>
+             <span>add a line</span>
+             <input 
+             name='post' 
+             value={this.state.newPost.post} 
+             onChange={this.handleChange}
+             required
+             pattern=".{2,}"
+             />
+           </label>
+           <button 
+           onClick={this.addPost} 
+           disabled={this.state.formInvalid}>add post</button>
+         </form>
+       </section> */}
       </div>
     );
   }
 }
+
 export default App;
