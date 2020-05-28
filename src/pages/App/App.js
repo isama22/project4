@@ -22,7 +22,12 @@ class App extends React.Component {
     super();
     this.state = {
       user: userService.getUser(),
+      
     }
+  }
+
+  addPost =() => {
+    alert('add post clicked')
   }
 
   handleLogout = () => {
