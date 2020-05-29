@@ -1,13 +1,13 @@
 import React from 'react';
 import './Home.css';
 import EnterPage from '../../pages/EnterPage/EnterPage';
-import NavBar from '../../components/NavBar/NavBar';
+// import NavBar from '../../components/NavBar/NavBar';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Home = (props) => {
   return (
     <div className="Home">
-      <NavBar user={props.user} handleLogout={props.handleLogout}/>
+      {/* <NavBar user={props.user} handleLogout={props.handleLogout}/> */}
           <br></br><br></br><br></br>
       <div className="home-img">
         <div className="home-div">

@@ -17,7 +17,8 @@ import Endpage3 from "../../components/Endpage3/Endpage3";
 import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
-import postsService from '../../utils/postsService';
+import postsService from "../../utils/postsService";
+import NavBar from '../../components/NavBar/NavBar';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -30,12 +31,17 @@ class App extends React.Component {
       formInvalid: true,
     };
   }
+
   formRef = React.createRef();
 
   addPost = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     if (!this.formRef.current.checkValidity()) return;
     // Using the "function" approach because relying on existing state
+    const body = { text: this.state.newPost };
+    postsService.create(body);
+    this.state.history.push('/endpage1'
+    )
     this.setState((state) => ({
       // Always replace, don't mutate top-level state properties
       posts: [...state.posts, state.newPost],
@@ -43,6 +49,7 @@ class App extends React.Component {
       newPost: { post: "" },
     }));
   };
+
   handleChange = (e) => {
     const newPost = { ...this.state.newSkill };
     newPost[e.target.name] = e.target.value;
@@ -59,9 +66,9 @@ class App extends React.Component {
     userService.logout();
     this.setState({ user: null });
   };
+
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
-
   };
 
   async componentDidMount() {
@@ -69,12 +76,13 @@ class App extends React.Component {
     this.setState({ posts });
   }
 
-
-
   render() {
     return (
       <div className="App">
+              
         <Router>
+       
+                <NavBar user={this.state.user} handleLogout={this.state.handleLogout}/>
           <Route
             exact
             path="/"
@@ -110,20 +118,12 @@ class App extends React.Component {
           <Route
             exact
             path="/endpage2"
-            render={(props) => 
-            <Endpage2 
-            user={this.state.user} 
-            {...props} 
-            />}
+            render={(props) => <Endpage2 user={this.state.user} {...props} />}
           />
           <Route
             exact
             path="/endpage3"
-            render={(props) => 
-            <Endpage3 
-            user={this.state.user} 
-            {...props} 
-            />}
+            render={(props) => <Endpage3 user={this.state.user} {...props} />}
           />
           <Route
             exact
