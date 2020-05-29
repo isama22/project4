@@ -17,6 +17,7 @@ import Endpage3 from "../../components/Endpage3/Endpage3";
 import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
+import postsService from '../../utils/postsService';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -30,8 +31,9 @@ class App extends React.Component {
     };
   }
   formRef = React.createRef();
+
   addPost = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (!this.formRef.current.checkValidity()) return;
     // Using the "function" approach because relying on existing state
     this.setState((state) => ({
@@ -58,7 +60,16 @@ class App extends React.Component {
   };
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
+
   };
+
+  async componentDidMount() {
+    const posts = await postsService.index();
+    this.setState({ posts });
+  }
+
+  
+
   render() {
     return (
       <div className="App">

@@ -15,7 +15,7 @@ const NavBar = (props) => {
         :
         <div className="nav">
             <Link to='/login'>Log in</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <Link to='/signup'>Sign up</Link>
         </div>
     return (
