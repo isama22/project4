@@ -16,7 +16,7 @@ async function create(req, res) {
 }
 
 async function seePost(req, res) {
-//   console.log(req.user);
+  console.log(req.user);
   const posts = await Post.find({})
   .limit(req.query.limit || 20);
   res.json(posts);

@@ -54,6 +54,7 @@ class App extends React.Component {
       formInvalid: !this.formRef.current.checkValidity(),
     });
   };
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -68,7 +69,7 @@ class App extends React.Component {
     this.setState({ posts });
   }
 
-  
+
 
   render() {
     return (
@@ -109,12 +110,20 @@ class App extends React.Component {
           <Route
             exact
             path="/endpage2"
-            render={(props) => <Endpage2 user={this.state.user} {...props} />}
+            render={(props) => 
+            <Endpage2 
+            user={this.state.user} 
+            {...props} 
+            />}
           />
           <Route
             exact
             path="/endpage3"
-            render={(props) => <Endpage3 user={this.state.user} {...props} />}
+            render={(props) => 
+            <Endpage3 
+            user={this.state.user} 
+            {...props} 
+            />}
           />
           <Route
             exact
@@ -146,31 +155,6 @@ class App extends React.Component {
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
         </Router>
-        {/* <section>
-         <h2>add post</h2>
-         <hr />
-         {this.state.posts.map(p => (
-           <article key={p.post}>
-             <div>{p.post}</div>
-             <div>{p.text}</div>
-           </article>
-         ))}
-         <form ref={this.formRef} onSubmit={this.addpost}>
-           <label>
-             <span>add a line</span>
-             <input 
-             name='post' 
-             value={this.state.newPost.post} 
-             onChange={this.handleChange}
-             required
-             pattern=".{2,}"
-             />
-           </label>
-           <button 
-           onClick={this.addPost} 
-           disabled={this.state.formInvalid}>add post</button>
-         </form>
-       </section> */}
       </div>
     );
   }
