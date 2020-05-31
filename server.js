@@ -22,6 +22,12 @@ app.get('/*', function(req, res) {
 
 const port = process.env.PORT || 3001;
 
+const postsRouter = require('./routes/posts');
+const usersRouter = require('./routes/users');
+
+app.use('/posts', postsRouter);
+app.use('/users', usersRouter);
+
 app.listen(port, function() {
     console.log(`Express App running on port ${port}`)
 })

@@ -17,6 +17,7 @@ import Endpage3 from "../../components/Endpage3/Endpage3";
 import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
+import postsService from "../../utils/postsService";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -29,7 +30,9 @@ class App extends React.Component {
       formInvalid: true,
     };
   }
+
   formRef = React.createRef();
+
   addPost = (e) => {
     e.preventDefault();
     if (!this.formRef.current.checkValidity()) return;
@@ -41,24 +44,60 @@ class App extends React.Component {
       newPost: { post: "" },
     }));
   };
-  handleChange = (e) => {
-    const newPost = { ...this.state.newSkill };
-    newPost[e.target.name] = e.target.value;
-    e.persist();
-    // console.log(e.target);
-    this.setState({
-      newPost,
-      // console.log(e.target.checkValidity())
-      formInvalid: !this.formRef.current.checkValidity(),
-    });
+
+  getAllHikes = () => {
+    fetch(
+    )
+      .then((res) => {
+        console.log(res);
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then((hikes) => {
+        this.setState( );
+      });
   };
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
   };
+
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   };
+
+
+  async componentDidMount() {
+    const posts = await postsService.index();
+    this.props.addPost(posts);
+  }
+
+  indexGetAllPosts= () => {
+    fetch("/api/posts/" + "index", {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Authorization': 'Bearer ' + tokenService.getToken(),
+            'Content-Type': 'application/json'
+          },
+      }
+    )
+      .then((res) => {
+        console.log(res);
+        if (res.ok) {
+          return res.json();
+        }
+      })
+      .then((posts) => {
+        this.setState({posts});
+
+      });
+  };
+
   render() {
     return (
       <div className="App">
