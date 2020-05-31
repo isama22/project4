@@ -1,13 +1,34 @@
 import React from "react";
 import "./Endpage1.css";
 import NavBar from "../../components/NavBar/NavBar";
+import linesService from '../../utils/linesService';
 import { render } from "@testing-library/react";
-class Endpage1 extends React.Component {
 
-  handleAddPost = (e) => {
-    e.preventDefault();
-    this.props.addPost(e);
-  };
+class Endpage1 extends React.Component {
+  state = {
+    invalidForm: true,
+    formData: {
+        line: '',
+    }
+}
+
+handleChange = e => {
+  const formData = {...this.state.formData, [e.target.name]: e.target.value}
+  this.setState({
+      formData, 
+      invalidForm: !this.formRef.current.checkValidity()
+  })
+}
+
+handleSubmit = e => {
+  e.preventDefault()
+  this.props.handleAddLine(this.state.formData)
+}
+
+// async componentDidMount(){
+//   const lines = await linesService.index()
+//   this.props.handleUpdateLines(lines)
+// }
 
   render() {
     const { props } = this;
@@ -51,24 +72,23 @@ class Endpage1 extends React.Component {
           <section>
             <h2>add post</h2>
             <hr />
-            {props.posts.map((p) => (
-              <article key={p.post}>
-                <div>{p.post}</div>
-                <div>{p.text}</div>
+            {props.lines.map((line, idx) => (
+              <article key={idx}>
+                <div>{line.text}</div>
               </article>
             ))}
-            <form ref={props.formRef} onSubmit={props.addPost}>
+            <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
               <label>
-                <span>post</span>
+                <span>line</span>
                 <input
-                  name="post"
-                  value={props.newPost.post}
-                  onChange={props.handleChange}
-                  required
-                  pattern=".{2,}"
+                  name="line"
+                  type="text"
+
+                  value={this.state.formData.line}
+                  onChange={this.handleChange}
                 />
               </label>
-              <button onClick={props.addPost} disabled={props.formInvalid}>
+              <button type="submit" disabled={this.state.invalidForm}>
                 add post
               </button>
             </form>

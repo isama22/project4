@@ -45,19 +45,6 @@ class App extends React.Component {
     }));
   };
 
-  getAllHikes = () => {
-    fetch(
-    )
-      .then((res) => {
-        console.log(res);
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((hikes) => {
-        this.setState( );
-      });
-  };
 
   handleLogout = () => {
     userService.logout();
@@ -74,29 +61,7 @@ class App extends React.Component {
     this.props.addPost(posts);
   }
 
-  indexGetAllPosts= () => {
-    fetch("/api/posts/" + "index", {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-            'Authorization': 'Bearer ' + tokenService.getToken(),
-            'Content-Type': 'application/json'
-          },
-      }
-    )
-      .then((res) => {
-        console.log(res);
-        if (res.ok) {
-          return res.json();
-        }
-      })
-      .then((posts) => {
-        this.setState({posts});
-
-      });
-  };
+ 
 
   render() {
     return (
