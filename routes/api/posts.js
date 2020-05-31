@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const postsCtrl = require("../../controllers/posts");
-router.get("/", postsCtrl.seePost);
+
+router.get("/", postsCtrl.index);
 //Just be sure to mount your auth middleware before mounting any routes/routers that need access to req.user.
 /*---------- Protected Routes ----------*/
 // Process the token for only the routes below

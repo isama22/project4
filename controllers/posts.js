@@ -1,7 +1,7 @@
 var Post = require("../models/post");
 module.exports = {
   create,
-  seePost,
+  // seePost,
   index,
 };
 async function create(req, res) {

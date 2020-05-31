@@ -8,10 +8,18 @@ export default {
 };
 
 function index() {
+  // const get = {
+  //   method: "GET",
+  //   headers: {
+  //     "Content-type": "application/json",
+  //     // Add this header - don't forget the space after Bearer
+  //     Authorization: "Bearer " + tokenService.getToken(),
+  //   },
+  //   body: JSON.stringify(post),
+  // };
+  // return fetch(BASE_URL, get)
   return fetch(BASE_URL)
   .then((res) => res.json());
-  // .then((res) => res.text())
-  // .then((text) => console.log(text));
 }
 
 function create(post) {

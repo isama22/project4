@@ -40,8 +40,7 @@ class App extends React.Component {
     // Using the "function" approach because relying on existing state
     const body = { text: this.state.newPost };
     postsService.create(body);
-    this.state.history.push('/endpage1'
-    )
+    // this.state.history.push('/endpage1')
     this.setState((state) => ({
       // Always replace, don't mutate top-level state properties
       posts: [...state.posts, state.newPost],
