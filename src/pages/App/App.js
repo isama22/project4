@@ -19,47 +19,38 @@ import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import postsService from "../../utils/postsService";
 import NavBar from '../../components/NavBar/NavBar';
+// import * as postsAPI from '../../utils/postsService'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+  // constructor(props) {
+  //   super(props);
+  //   this.
+    state = {
       user: userService.getUser(),
       posts: [],
-      newPost: "",
       formInvalid: true,
     };
+  // }
+
+  // formRef = React.createRef();
+
+  handleAddPost = async newPostData => {
+    const newPost = await postsService.create(newPostData)
+    this.setState(state => ({
+      posts: [...state.posts, newPost]
+    }), () => this.props.history.push('/endpage1'))
+  }
+  async componentDidMount() {
+    const posts = await postsService.index()
+    this.setState({ posts })
   }
 
-  formRef = React.createRef();
+  handleUpdatePosts = (posts => {
+    this.setState({ posts })
+  })
 
-  addPost = (e) => {
-    e.preventDefault();
-    if (!this.formRef.current.checkValidity()) return;
-    // Using the "function" approach because relying on existing state
-    const body = { text: this.state.newPost };
-    postsService.create(body);
-    // this.state.history.push('/endpage1')
-    this.setState((state) => ({
-      // Always replace, don't mutate top-level state properties
-      posts: [...state.posts, state.newPost],
-      // Reset the inputs for better UX
-      newPost: { post: "" },
-    }));
-  };
-
-  handleChange = (e) => {
-    const newPost = { ...this.state.newSkill };
-    newPost[e.target.name] = e.target.value;
-    e.persist();
-    // console.log(e.target);
-    this.setState({
-      newPost,
-      // console.log(e.target.checkValidity())
-      formInvalid: !this.formRef.current.checkValidity(),
-    });
-  };
 
   handleLogout = () => {
     userService.logout();
@@ -70,18 +61,13 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
-  async componentDidMount() {
-    const posts = await postsService.index();
-    this.setState({ posts });
-  }
-
   render() {
     return (
       <div className="App">
-              
+
         <Router>
-       
-                <NavBar user={this.state.user} handleLogout={this.state.handleLogout}/>
+
+          <NavBar user={this.state.user} handleLogout={this.state.handleLogout} />
           <Route
             exact
             path="/"
@@ -99,21 +85,14 @@ class App extends React.Component {
             path="/enter"
             render={(props) => <EnterPage {...props} />}
           />
-          <Route
-            exact
-            path="/endpage1"
-            render={(props) => (
-              <Endpage1
-                user={this.state.user}
-                addPost={this.addPost}
-                handleChange={this.handleChange}
-                posts={this.state.posts}
-                newPost={this.state.newPost}
-                formRef={this.formRef}
-                {...props}
-              />
-            )}
-          />
+          <Route exact path='/endpage1' render={(history) =>
+            <Endpage1
+              handleAddPost={this.handleAddPost}
+              user={this.state.user}
+              posts={this.state.posts}
+              history={history}
+            />
+          } />
           <Route
             exact
             path="/endpage2"
