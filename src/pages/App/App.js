@@ -23,6 +23,7 @@ import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {

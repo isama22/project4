@@ -1,6 +1,7 @@
 import React from "react";
 import "./Endpage1.css";
 import NavBar from "../../components/NavBar/NavBar";
+
 import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
