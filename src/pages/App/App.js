@@ -20,6 +20,7 @@ import userService from "../../utils/userService";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +30,9 @@ class App extends React.Component {
       formInvalid: true,
     };
   }
+
   formRef = React.createRef();
+
   addPost = (e) => {
     e.preventDefault();
     if (!this.formRef.current.checkValidity()) return;
@@ -41,6 +44,7 @@ class App extends React.Component {
       newPost: { post: "" },
     }));
   };
+
   handleChange = (e) => {
     const newPost = { ...this.state.newSkill };
     newPost[e.target.name] = e.target.value;
@@ -52,13 +56,16 @@ class App extends React.Component {
       formInvalid: !this.formRef.current.checkValidity(),
     });
   };
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
   };
+
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   };
+  
   render() {
     return (
       <div className="App">
@@ -135,31 +142,6 @@ class App extends React.Component {
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
         </Router>
-        {/* <section>
-         <h2>add post</h2>
-         <hr />
-         {this.state.posts.map(p => (
-           <article key={p.post}>
-             <div>{p.post}</div>
-             <div>{p.text}</div>
-           </article>
-         ))}
-         <form ref={this.formRef} onSubmit={this.addpost}>
-           <label>
-             <span>add a line</span>
-             <input 
-             name='post' 
-             value={this.state.newPost.post} 
-             onChange={this.handleChange}
-             required
-             pattern=".{2,}"
-             />
-           </label>
-           <button 
-           onClick={this.addPost} 
-           disabled={this.state.formInvalid}>add post</button>
-         </form>
-       </section> */}
       </div>
     );
   }
