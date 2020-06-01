@@ -15,11 +15,6 @@ async function create(req, res) {
     res.json({ err });
   }
 }
-// async function seePost(req, res) {
-//   console.log(req.user);
-//   const posts = await Post.find({}).limit(req.query.limit || 20);
-//   res.json(posts);
-// }
 async function index(req, res) {
   console.log(req.user);
   const posts = await Post.find({}).limit(req.query.limit || 20);

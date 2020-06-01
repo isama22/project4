@@ -35,7 +35,7 @@ class App extends React.Component {
   formRef = React.createRef();
 
   addPost = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (!this.formRef.current.checkValidity()) return;
     // Using the "function" approach because relying on existing state
     const body = { text: this.state.newPost };
