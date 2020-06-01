@@ -23,7 +23,7 @@ handleChange = e => {
 
 handleSubmit = e => {
     e.preventDefault()
-    this.props.handleAddPost(this.state.formData)
+    this.props.addPost(this.state.formData)
 }
 
 
