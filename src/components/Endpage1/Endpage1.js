@@ -55,8 +55,12 @@ class Endpage1 extends React.Component {
           <Link to="/addpost"><em>add a line</em></Link>
           <Router>
               <Route exact path="/addpost" render={(props) => (
-                  <Post {...props} />
-                   )} />
+                  <Post 
+                  handleAddPost={this.handleAddPost}
+                  posts={this.state.posts}
+                  user={this.state.user}
+                  {...props}
+                /> )} />
           </Router>
           </div>
         </div>

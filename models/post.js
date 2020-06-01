@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const postSchema = new mongoose.Schema({
-    text: String,
+    post: {
+        type: String,
+    },
     // category: {
     //     type: String,
     //     enum: ['endpage1', 'endpage2', 'endpage3']

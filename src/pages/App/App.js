@@ -17,7 +17,7 @@ import Endpage3 from "../../components/Endpage3/Endpage3";
 import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
-import postsService from "../../utils/postsService";
+import * as postsService from "../../utils/postsService";
 import NavBar from '../../components/NavBar/NavBar';
 import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -36,25 +36,13 @@ class App extends React.Component {
 
   formRef = React.createRef();
 
-  handleAddPost = async newPostData => {
+  handleAddPost = async (newPostData, history)=> {
     const newPost = await postsService.create(newPostData);
     this.setState(state => ({
       items: [...state.posts, newPost]
     }),
-      () => this.props.history.push('/endpage1'));
+      () => history.push('/endpage1'));
   }
-
-  // handleChange = (e) => {
-  //   const newPost = { ...this.state.newSkill };
-  //   newPost[e.target.name] = e.target.value;
-  //   e.persist();
-  //   // console.log(e.target);
-  //   this.setState({
-  //     newPost,
-  //     // console.log(e.target.checkValidity())
-  //     formInvalid: !this.formRef.current.checkValidity(),
-  //   });
-  // };
 
   handleLogout = () => {
     userService.logout();
@@ -100,7 +88,7 @@ class App extends React.Component {
             render={(props) => (
               <Endpage1
                 user={this.state.user}
-                addPost={this.addPost}
+                handleAddPost={this.handleAddPost}
                 handleChange={this.handleChange}
                 posts={this.state.posts}
                 newPost={this.state.newPost}

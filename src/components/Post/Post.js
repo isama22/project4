@@ -18,7 +18,7 @@ class Post extends React.Component {
     
     handleSubmit = e => {
         e.preventDefault()
-        this.props.handleAddPost(this.state.formData)
+        this.props.handleAddPost(this.state.formData, this.props.history)
     }
     render(){
         return (
