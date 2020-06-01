@@ -6,7 +6,7 @@ module.exports = {
 }
 
 async function create(req, res) {
-    console.log('user: ', req.user)
+    req.body.user = req.user._id
     try {
         await Post.create(req.body)
         poemPosts(req, res)

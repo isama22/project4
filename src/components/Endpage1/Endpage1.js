@@ -1,30 +1,10 @@
 import React from "react";
 import "./Endpage1.css";
 import NavBar from "../../components/NavBar/NavBar";
-// import postsService from "../../utils/postsService";
-// import { render } from "@testing-library/react";
+import Post from '../../components/Post/Post';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class Endpage1 extends React.Component {
-
-  state = {
-    invalidForm: true,
-    formData: {post: ''}
-}
-
-formRef = React.createRef()
-
-handleChange = e => {
-    const formData = {...this.state.formData, [e.target.name]: e.target.value}
-    this.setState({
-        formData, 
-        invalidForm: !this.formRef.current.checkValidity()
-    })
-}
-
-handleSubmit = e => {
-    e.preventDefault()
-    this.props.addPost(this.state.formData)
-}
 
 
   render() {
@@ -68,33 +48,18 @@ handleSubmit = e => {
             {this.props.posts.map((p) => (
               <article key={p.post}>
                 <div>{p.post}</div>
-                {/* <div>{p.text}</div> */}
               </article>
-            ))}
-            <form 
-            ref={this.formRef} 
-            autoComplete='off' 
-            onSubmit={this.handleSubmit}
-            >
-              <label>
-                <span><em>add a line</em></span>&nbsp;
-                <input
-                  name="post"
-                  type="text"
-                  value={this.state.formData.post}
-                  onChange={this.handleChange}
-                />
-              </label>
-              <button 
-              type="submit"
-              disabled={this.state.invalidForm}
-              >
-                +
-              </button>
-            </form>
-          </section>
+            ))}</section>    
+          <div>
+          <Link to="/addpost"><em>add a line</em></Link>
+          <Router>
+              <Route exact path="/addpost" render={(props) => (
+                  <Post {...props} />
+                   )} />
+          </Router>
+          </div>
         </div>
-      </div>
+        </div>
     );
   }
 }

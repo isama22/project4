@@ -19,6 +19,7 @@ import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import postsService from "../../utils/postsService";
 import NavBar from '../../components/NavBar/NavBar';
+import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -34,17 +35,13 @@ class App extends React.Component {
 
   formRef = React.createRef();
 
-  addPost = (e) => {
-    // Using the "function" approach because relying on existing state
-    const body = { text: this.state.newPost };
-    postsService.create(body);
-    this.setState((state) => ({
-      // Always replace, don't mutate top-level state properties
-      posts: [...state.posts, state.newPost],
-      // Reset the inputs for better UX
-      newPost: { post: "" },
-    }));
-  };
+  handleAddPost = async newPostData => {
+    const newPost = await postsService.create(newPostData);
+    this.setState(state => ({
+      items: [...state.posts, newPost]
+    }),
+      () => this.props.history.push('/endpage1'));
+  }
 
   // handleChange = (e) => {
   //   const newPost = { ...this.state.newSkill };
@@ -141,6 +138,18 @@ class App extends React.Component {
               />
             )}
           />
+
+          <Route
+          exact path="/addpost"
+          render={({history}) =>(
+            <Post 
+            history={history}
+            handleAddPost={this.handleAddPost}
+            posts={this.state.posts}
+            user={this.state.user}
+          /> )} 
+          />
+
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
           <Route exact path="/dana3" component={dana3} />
@@ -150,6 +159,7 @@ class App extends React.Component {
           <Route exact path="/derksen1" component={derksen1} />
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
+          <Route exact path="/addpost" component={Post} />
         </Router>
       </div>
     );
