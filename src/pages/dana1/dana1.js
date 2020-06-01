@@ -1,6 +1,7 @@
 import React from 'react';
 import './dana1.css';
 import dana2 from '../../pages/dana2/dana2';
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const dana1 = () => {
 

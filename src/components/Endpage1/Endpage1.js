@@ -1,12 +1,12 @@
 import React from "react";
 import "./Endpage1.css";
 import NavBar from "../../components/NavBar/NavBar";
+
+import Post from '../../components/Post/Post';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 class Endpage1 extends React.Component {
 
-  handleAddPost = (e) => {
-    e.preventDefault();
-    this.props.addPost(e);
-  };
 
   render() {
     const { props } = this;
@@ -45,37 +45,22 @@ class Endpage1 extends React.Component {
               ...
             </a>
           </p>
-          <br></br>
-          <br></br>
           <section>
-            <h2>add post</h2>
-            <hr />
-            {props.posts.map((p) => (
+            {this.props.posts.map((p) => (
               <article key={p.post}>
                 <div>{p.post}</div>
-                <div>{p.text}</div>
               </article>
-            ))}
-            <form ref={props.formRef} onSubmit={props.addPost}>
-              <label>
-                <span>post</span>
-                <input
-                  name="post"
-                  value={props.newPost.post}
-                  onChange={props.handleChange}
-                  required
-                  pattern=".{2,}"
-                />
-              </label>
-              <button onClick={props.addPost} disabled={props.formInvalid}>
-                add post
-              </button>
-            </form>
-          </section>
-          <br></br>
-          <br></br>
+            ))}</section>    
+          <div>
+          <Link to="/addpost"><em>add a line</em></Link>
+          <Router>
+              <Route exact path="/addpost" render={(props) => (
+                  <Post {...props} />
+                   )} />
+          </Router>
+          </div>
         </div>
-      </div>
+        </div>
     );
   }
 }
