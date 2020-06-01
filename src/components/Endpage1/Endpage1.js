@@ -1,7 +1,6 @@
 import React from "react";
 import "./Endpage1.css";
 import NavBar from "../../components/NavBar/NavBar";
-import { render } from "@testing-library/react";
 class Endpage1 extends React.Component {
 
   handleAddPost = (e) => {
