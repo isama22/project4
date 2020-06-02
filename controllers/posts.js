@@ -2,7 +2,10 @@ let Post = require('../models/post')
 
 module.exports = {
     create,
-    poemPosts
+    poemPosts,
+    update,
+    findPost
+
 }
 
 async function create(req, res) {
@@ -18,4 +21,26 @@ async function create(req, res) {
 async function poemPosts(req, res) {
     const posts = await Post.find({})
     res.json(posts)
+}
+
+async function update(req, res) {
+    try {
+        const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(200).json(updatedPost)
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
+}
+
+async function findPost(req, res) {
+    console.log(req.params.id)
+    try {
+        const foundPost = await Post.findById(req.params.id)
+        console.log(foundPost)
+        res.status(200).json(foundPost)
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Endpage1.css";
-import NavBar from "../../components/NavBar/NavBar";
+// import NavBar from "../../components/NavBar/NavBar";
+import Editpage from '../../components/Editpage/Editpage';
 
 import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -12,7 +13,7 @@ class Endpage1 extends React.Component {
     const { props } = this;
     return (
       <div className="main-div">
-        <NavBar user={props.user} handleLogout={props.handleLogout} />
+        {/* <NavBar user={props.user} handleLogout={props.handleLogout} /> */}
         <br></br>
         <br></br>
         <br></br>
@@ -48,23 +49,43 @@ class Endpage1 extends React.Component {
           <section>
             {this.props.posts.map((p) => (
               <article key={p.post}>
-                <div>{p.post}</div>
+                <div>
+                  {p.post}
+                  <Link 
+                  // to='/editpage'
+                  to={{ pathname: '/editpage/'+p._id, state: {post: p.post} }}
+                  >  
+                  <button>Edit</button>
+                  </Link>
+
+              {/* <Router>
+              <Route path="/editpage/:id" render={(props) => (
+                <Editpage
+                  {...props}
+                  handleUpdatePost={this.handleUpdatePost}
+                  posts={p.post}
+                  user={this.state.user}
+
+                /> )} />
+            </Router> */}
+
+                </div>
               </article>
-            ))}</section>    
+            ))}</section>
           <div>
-          <Link to="/addpost"><em>add a line</em></Link>
-          <Router>
+            <Link to="/addpost"><em>add a line</em></Link>
+            <Router>
               <Route exact path="/addpost" render={(props) => (
-                  <Post 
+                <Post
                   handleAddPost={this.handleAddPost}
                   posts={this.state.posts}
                   user={this.state.user}
                   {...props}
-                /> )} />
-          </Router>
+                />)} />
+            </Router>
           </div>
         </div>
-        </div>
+      </div>
     );
   }
 }

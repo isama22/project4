@@ -20,6 +20,7 @@ import userService from "../../utils/userService";
 import * as postsService from "../../utils/postsService";
 import NavBar from '../../components/NavBar/NavBar';
 import Post from '../../components/Post/Post';
+import Editpage from '../../components/Editpage/Editpage';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -36,7 +37,7 @@ class App extends React.Component {
 
   formRef = React.createRef();
 
-  handleAddPost = async (newPostData, history)=> {
+  handleAddPost = async (newPostData, history) => {
     const newPost = await postsService.create(newPostData);
     this.setState(state => ({
       items: [...state.posts, newPost]
@@ -53,6 +54,13 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
+  handleUpdatePost = async updatedPostData => {
+    const updatedPost = await postsService.update(updatedPostData)
+    const newpostsArray = this.state.posts.map(e => 
+      e._id === updatedPost._id ? updatedPost : e)
+      this.setState({ posts: newpostsArray })
+  }
+
   async componentDidMount() {
     const posts = await postsService.index();
     this.setState({ posts });
@@ -61,10 +69,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-              
+
         <Router>
-       
-                <NavBar user={this.state.user} handleLogout={this.state.handleLogout}/>
+
+          <NavBar user={this.state.user} handleLogout={this.state.handleLogout} />
           <Route
             exact
             path="/"
@@ -127,17 +135,35 @@ class App extends React.Component {
               />
             )}
           />
-
           <Route
-          exact path="/addpost"
-          render={({history}) =>(
-            <Post 
-            history={history}
-            handleAddPost={this.handleAddPost}
-            posts={this.state.posts}
-            user={this.state.user}
-          /> )} 
+            exact path="/addpost"
+            render={({ history }) => (
+              <Post
+                history={history}
+                handleAddPost={this.handleAddPost}
+                posts={this.state.posts}
+                user={this.state.user}
+              />)}
           />
+            {/* <Route 
+            exact path='/edit' 
+            render={({history}) =>
+              <Editpage
+                posts={this.state.posts}
+                handleUpdatePost={this.handleUpdatePost}
+                history={history}
+              />
+            }/> */}
+
+              <Route path="/editpage/:id" render={(props) => (
+                <Editpage
+                  {...props}
+                  handleUpdatePost={this.handleUpdatePost}
+                  // posts={p.post}
+                  user={this.state.user}
+
+                /> )} />
+
 
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
@@ -149,6 +175,7 @@ class App extends React.Component {
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
           <Route exact path="/addpost" component={Post} />
+          {/* <Route exact path="/editpage" component={Editpage} /> */}
         </Router>
       </div>
     );
