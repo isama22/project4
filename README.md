@@ -10,8 +10,10 @@ wireframes:
 
 screenshots: 
 ![](https://i.postimg.cc/3JvjHRDW/Screen-Shot-2020-06-02-at-10-14-16-AM.png)
-![](https://i.postimg.cc/yNg30pXx/Screen-Shot-2020-06-02-at-10-14-24-AM.png)
+![](https://i.postimg.cc/y6bqbfFs/Screen-Shot-2020-06-02-at-10-14-24-AM.png)
 ![]( )
 ![]( )
 ERD:
 ![]( https://i.postimg.cc/PfK98S61/BBBB.png)
+
+next steps: I want to add in more lines to each poem's line path, clean up the forms and the end page's UI, have all three poem routes available on each path to enable crossover, create functionality to have the app keep score of how many lines from each poem you selected and show you the poem that you chose the most lines from.
