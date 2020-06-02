@@ -11,8 +11,8 @@ wireframes:
 screenshots: 
 ![](https://i.postimg.cc/3JvjHRDW/Screen-Shot-2020-06-02-at-10-14-16-AM.png)
 ![](https://i.postimg.cc/y6bqbfFs/Screen-Shot-2020-06-02-at-10-14-24-AM.png)
-![]( )
-![]( )
+![](https://i.postimg.cc/FK5GdS3M/Screen-Shot-2020-06-02-at-10-31-20-AM.png)
+![](https://i.postimg.cc/h4Lnf8xB/Screen-Shot-2020-06-02-at-10-14-43-AM.png)
 ERD:
 ![]( https://i.postimg.cc/PfK98S61/BBBB.png)
 
