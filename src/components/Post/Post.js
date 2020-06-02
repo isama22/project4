@@ -42,6 +42,7 @@ class Post extends React.Component {
               >
                 +
               </button>
+      
             </form>
         )
     }

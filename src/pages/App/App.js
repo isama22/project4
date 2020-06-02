@@ -66,6 +66,13 @@ class App extends React.Component {
     this.setState({ posts });
   }
 
+  handleDeletePost = async id => {
+    await postsService.deletePost(id)
+    this.setState(state => ({
+      posts: state.posts.filter(e => e._id !== id)
+    }), () => this.props.history.push('/endpage1'))
+  }
+
   render() {
     return (
       <div className="App">
@@ -101,6 +108,7 @@ class App extends React.Component {
                 posts={this.state.posts}
                 newPost={this.state.newPost}
                 formRef={this.formRef}
+                handleDeletePost={this.handleDeletePost}
                 {...props}
               />
             )}

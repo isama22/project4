@@ -4,7 +4,8 @@ module.exports = {
     create,
     poemPosts,
     update,
-    findPost
+    findPost,
+    deletePost
 
 }
 
@@ -39,6 +40,17 @@ async function findPost(req, res) {
         const foundPost = await Post.findById(req.params.id)
         console.log(foundPost)
         res.status(200).json(foundPost)
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
+}
+
+
+async function deletePost(req, res) {
+    try{
+        const deletedPost = await Post.findByIdAndRemove(req.params.id)
+        res.status(200).json(deletedPost)
     }
     catch(err){
         res.status(500).json(err)

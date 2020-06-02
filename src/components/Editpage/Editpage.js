@@ -42,7 +42,6 @@ class Editpage extends Component {
     render() {
         return (
             <>
-            <header>Edit Line</header>
             <form
                 ref={this.formRef}
                 autoComplete='off'
@@ -65,8 +64,10 @@ class Editpage extends Component {
                     >Update
                         </button>
                     <Link to='/endpage1'>Cancel</Link>
+                    {/* <button onClick={() => handleDeletePost(post._id)}>Delete</button> */}
                 </div>
             </form>
+
             </>
         )
     }

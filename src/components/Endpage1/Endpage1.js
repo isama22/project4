@@ -1,7 +1,7 @@
 import React from "react";
 import "./Endpage1.css";
 // import NavBar from "../../components/NavBar/NavBar";
-import Editpage from '../../components/Editpage/Editpage';
+// import Editpage from '../../components/Editpage/Editpage';
 
 import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
@@ -51,23 +51,13 @@ class Endpage1 extends React.Component {
               <article key={p.post}>
                 <div>
                   {p.post}
-                  <Link 
-                  // to='/editpage'
-                  to={{ pathname: '/editpage/'+p._id, state: {post: p.post} }}
-                  >  
-                  <button>Edit</button>
+                  <Link
+                    // to='/editpage'
+                    to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}
+                  >
+                    <button>Edit</button>
                   </Link>
-
-              {/* <Router>
-              <Route path="/editpage/:id" render={(props) => (
-                <Editpage
-                  {...props}
-                  handleUpdatePost={this.handleUpdatePost}
-                  posts={p.post}
-                  user={this.state.user}
-
-                /> )} />
-            </Router> */}
+                  
 
                 </div>
               </article>
@@ -80,6 +70,7 @@ class Endpage1 extends React.Component {
                   handleAddPost={this.handleAddPost}
                   posts={this.state.posts}
                   user={this.state.user}
+                  handleDeleteEntry={props.handleDeleteEntry}
                   {...props}
                 />)} />
             </Router>
