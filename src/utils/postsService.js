@@ -24,6 +24,23 @@ export function index() {
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
+export function update(post) {
+    return fetch(`${BASE_URL}/${post._id}`, {
+        method: 'PUT',
+        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+        body: JSON.stringify(post)
+    }).then(res => res.json())
+}
+
+
+export function findNewPost(id) {
+    console.log(id)
+    return fetch(`${BASE_URL}/${id}`, {
+        method: 'GET',
+        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}
+    }).then(res => res.json())
+}
+
 // export default {
 //   index,
 //   create

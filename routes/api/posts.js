@@ -9,6 +9,8 @@ router.get('/', postsCtrl.poemPosts)
 router.use(require('../../config/auth'))
 
 router.post('/', checkAuth, postsCtrl.create)
+router.put('/:id', checkAuth, postsCtrl.update)
+router.get('/:id', postsCtrl.findPost)
 
 
 function checkAuth(req, res, next) {
