@@ -6,11 +6,6 @@ const postSchema = new mongoose.Schema({
     post: {
         type: String,
     },
-    // category: {
-    //     type: String,
-    //     enum: ['endpage1', 'endpage2', 'endpage3']
-    // },
-    
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
