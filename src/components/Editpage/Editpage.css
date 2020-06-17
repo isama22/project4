@@ -1,0 +1,41 @@
+.edit-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 680px;
+    background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.edit-container {
+    background-color: rgb(180,101,5, .75);
+    border: solid 2px;
+    padding: 30px;
+}
+
+.edit-header {
+    width: 270px;
+    color: white;
+}
+
+.edit-input {
+    margin: 6px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid black;
+    /* border-radius: 5px; */
+}
+
+.edit-body {
+    display: flex;
+    flex-direction: column;
+}
+.edit-buttons {
+    display: flex;
+    flex-direction: column;
+}

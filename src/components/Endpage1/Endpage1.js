@@ -1,6 +1,5 @@
 import React from "react";
 import "./Endpage1.css";
-
 import Post from '../../components/Post/Post';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -12,8 +11,6 @@ class Endpage1 extends React.Component {
     return (
       <div className="main-div">
         <div className="ep1-container">
-
-
         <br /><br />
         <div className="p">
           <p id="headerp">
@@ -61,27 +58,21 @@ class Endpage1 extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
               id="link"
-            >
-              ...
-            </a>
-         
+            >...</a>
           </p>
-          <br />
           <section>
             {this.props.posts.map((p) => (
               <article key={p.post}>
                 <div>
                   {p.post}
                   <Link
-                    to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}
-                  >
+                    to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}>
                     Edit
                   </Link>
                 </div>
               </article>
             ))}</section>
           <div>
-            {/* <Link to="/addpost"><em>add a line</em></Link> */}
             <Router>
               <Route exact path="/addpost" render={(props) => (
                 <Post

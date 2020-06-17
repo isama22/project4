@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './Editpage.css';
 import * as postsService from "../../utils/postsService";
 
 class Editpage extends Component {
@@ -23,7 +24,7 @@ class Editpage extends Component {
     }
 
     handleChange = e => {
-        const formData = {...this.state.formData, [e.target.name]: e.target.value}
+        const formData = { ...this.state.formData, [e.target.name]: e.target.value }
         this.setState({
             formData,
             invalidForm: !this.formRef.current.checkValidity()
@@ -31,8 +32,8 @@ class Editpage extends Component {
 
     }
 
-    async componentDidMount(){
-     const foundPost = await postsService.findNewPost(this.props.match.params.id)
+    async componentDidMount() {
+        const foundPost = await postsService.findNewPost(this.props.match.params.id)
         console.log(foundPost)
         this.setState({
             formData: foundPost
@@ -42,35 +43,47 @@ class Editpage extends Component {
     render() {
         return (
             <>
-            <header>Edit Line</header>
-            <form
-                ref={this.formRef}
-                autoComplete='off'
-                onSubmit={this.handleSubmit}
-            >
-                <div>
-                    <input
-                    name='post'
-                    type='text'
-                    value={this.state.formData.post}
-                    onChange={this.handleChange}
-                    required
-                    >
-                    </input>
+                <div className="edit-page">
+                    <div className="edit-container">
+                        <div className="edit-header">
+                            <header>Edit Line</header>
+                        </div>
+                        <div className="edit-body">
+                        <form
+                            ref={this.formRef}
+                            autoComplete='off'
+                            onSubmit={this.handleSubmit}
+                        >
+                            <input
+                                className="edit-input"
+                                name='post'
+                                type='text'
+                                value={this.state.formData.post}
+                                onChange={this.handleChange}
+                                required
+                            >
+                            </input>
+                            <div className="edit-buttons">
+                                <button
+                                    
+                                    type='submit'
+                                    disabled={this.state.invalidForm}
+                                >Update
+                                </button>
+                                <button>
+                                    Delete
+                                </button>
+                                <Link  to='/endpage1'>Cancel</Link>
+
+                            </div>
+                        </form>
+                        </div>
+                        
+                    </div>
                 </div>
-                <div>
-                    <button
-                        type='submit'
-                        disabled={this.state.invalidForm}
-                    >Update
-                        </button>
-                    <Link to='/endpage1'>Cancel</Link>
-                </div>
-            </form>
             </>
         )
     }
-
 }
 
 export default Editpage;

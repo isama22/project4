@@ -1,16 +1,15 @@
 .main-div {
     background-color: #3333FF;
     color: #E39D84;
-    /* height: 1000px; */
     background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
     background-size: initial; 
-    margin: 20px;
+    margin: 0px;
     border: solid 2px black;
     align-items: center;
 }
 
 .ep1-container {
-    margin-left: 300px;
+    margin-left: 340px;
 }
 .p {
     width: 502px;
@@ -36,13 +35,9 @@ p {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    margin: 0px;
+    /* margin: 0px; */
 }
 
-form {
-    display: flex;
-    justify-content: center;
-}
 #link {
     /* display: flex;
     justify-content: flex-end;
@@ -71,6 +66,8 @@ span {
 form {
       margin-top: 40px;
       margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
 
 }
 
