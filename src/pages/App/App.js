@@ -78,7 +78,6 @@ class App extends React.Component {
             path="/"
             render={(props) => (
               <Home
-                //passing user from app to home so i can access it in NavBar!! important!!
                 user={this.state.user}
                 handleLogout={this.handleLogout}
                 {...props}
@@ -145,16 +144,6 @@ class App extends React.Component {
                 user={this.state.user}
               />)}
           />
-            {/* <Route 
-            exact path='/edit' 
-            render={({history}) =>
-              <Editpage
-                posts={this.state.posts}
-                handleUpdatePost={this.handleUpdatePost}
-                history={history}
-              />
-            }/> */}
-
               <Route path="/editpage/:id" render={(props) => (
                 <Editpage
                   {...props}
@@ -163,8 +152,6 @@ class App extends React.Component {
                   user={this.state.user}
 
                 /> )} />
-
-
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
           <Route exact path="/dana3" component={dana3} />
@@ -174,8 +161,6 @@ class App extends React.Component {
           <Route exact path="/derksen1" component={derksen1} />
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
-          <Route exact path="/addpost" component={Post} />
-          {/* <Route exact path="/editpage" component={Editpage} /> */}
         </Router>
       </div>
     );
