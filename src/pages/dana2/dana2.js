@@ -8,11 +8,6 @@ const dana2 = () => {
   return (
     <div id="main2">
       <div id="text2">
-
-      
-      {/* <p id="line3">
-      at the ready then subsume their diverging constituent parts
-      </p> */}
       <Link id="line3" to="/dana3">at the ready then subsume their diverging constituent parts</Link>
       <Router>
         <Route exact path="/dana3" component={dana3} />

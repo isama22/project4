@@ -1,0 +1,32 @@
+.add-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 680px;
+    background-image: url("https://i.postimg.cc/1zxGM9jC/Screen-Shot-2020-05-08-at-1-36-58-AM.png");   
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.add-container {
+    background-color: rgb(180,101,5, .75);
+    border: solid 2px;
+    padding: 30px;
+}
+.add-label {
+    width: 270px;
+    color: white;
+}
+
+.add-input {
+    margin: 6px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+}

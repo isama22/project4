@@ -1,22 +1,29 @@
 .main-div {
     background-color: #3333FF;
     color: #E39D84;
-    height: 1000px;
+    /* height: 1000px; */
     background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
     background-size: initial; 
-
-
+    margin: 20px;
+    border: solid 2px black;
+    align-items: center;
 }
 
+.ep1-container {
+    margin-left: 300px;
+}
 .p {
-    width: 400px;
+    width: 502px;
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
-    margin-left: 500px;
+    /* margin-left: 430px; */
     background-color: blue;
     border: solid 2px;
     border-color: #540b06;
+    padding: 20px;
+    margin: 100px;
+
 
 }
 
@@ -49,17 +56,28 @@ form {
 }
 
 article > div {
-    /* background-color: white; */
     margin-left: 20px;
-    width: 400px;
+    width: 350px;
     color: #d05a2f;
-  }
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
   
-  span {
+span {
     color: #d05a2f;
-  }
+}
+
 form {
       margin-top: 40px;
       margin-bottom: 15px;
 
-  }
+}
+
+.add-a-line {
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+}

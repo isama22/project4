@@ -11,7 +11,8 @@ const dana3 = () => {
       {/* <p id="line4">
       long ambivalent talks into midnight, all those
       </p> */}
-      <Link id="line4" to="/endpage1">long ambivalent talks into midnight, all those</Link>
+      {/* <Link id="line4" to="/endpage1">long ambivalent talks into midnight, all those</Link> */}
+      <Link className="dana3text" to="/addpost"><em></em>long ambivalent talks into midnight, all those</Link>
       <Router>
       <Route exact path="/endpage1" render={(props) => (
             <Endpage1 {...props} />
