@@ -61,17 +61,18 @@ class App extends React.Component {
       this.setState({ posts: newpostsArray })
   }
 
+  // handleDeletePost = async id => {
+  //   await postsService.deletePost(id)
+  //   this.setState(state => ({
+  //     posts: state.posts.filter(e => e._id !== id)
+  //   }), () => this.props.history.push('/endpage1'))
+  // }
+
   async componentDidMount() {
     const posts = await postsService.index();
     this.setState({ posts });
   }
 
-  handleDeletePost = async id => {
-    await postsService.deletePost(id)
-    this.setState(state => ({
-      posts: state.posts.filter(e => e._id !== id)
-    }), () => this.props.history.push('/endpage1'))
-  }
 
   render() {
     return (
@@ -79,7 +80,7 @@ class App extends React.Component {
 
         <Router>
 
-          <NavBar user={this.state.user} handleLogout={this.state.handleLogout} />
+          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Route
             exact
             path="/"
@@ -182,7 +183,7 @@ class App extends React.Component {
           <Route exact path="/derksen1" component={derksen1} />
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
-          <Route exact path="/addpost" component={Post} />
+          {/* <Route exact path="/addpost" component={Post} /> */}
           {/* <Route exact path="/editpage" component={Editpage} /> */}
         </Router>
       </div>

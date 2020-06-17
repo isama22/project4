@@ -1,19 +1,14 @@
 import React from "react";
 import "./Endpage1.css";
-// import NavBar from "../../components/NavBar/NavBar";
-// import Editpage from '../../components/Editpage/Editpage';
-
 import Post from '../../components/Post/Post';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 class Endpage1 extends React.Component {
-
 
   render() {
     const { props } = this;
     return (
       <div className="main-div">
-        {/* <NavBar user={props.user} handleLogout={props.handleLogout} /> */}
         <br></br>
         <br></br>
         <br></br>
@@ -24,19 +19,42 @@ class Endpage1 extends React.Component {
             <em>Dana Ward</em>
           </p>
           <p>
-            The heat out there this evening is contained heat like things keep
-            applicable boxes at the ready then subsume their diverging
-            constituent parts long ambivalent talks into midnight, all those
-            glowy Sophia Coppola movies, Prosecco the sexiest records I know. I
-            don't feel how I know anymore to be more than something seeking my
-            appalling lack of cinematic knowledge, fictive innocence & something
-            like the break-down of those little boxes little tombs put their
-            hands up in front of my mouth there's a tacitly humiliating eulogy
-            to drown out couldn't feel much more stupid about feeling stupid
-            over feeling stupid, living. Let me go & watch something moving
-            several images some of them symbolize humility broken postures
-            bloodshot eyes, intimately talking through this publicly I am not
-            developing at all but just the same
+            The heat out there this evening
+            <br /><br />
+            is contained heat like things keep
+            applicable boxes
+            <br /><br />
+            at the ready then subsume their diverging
+            constituent parts
+            <br /><br />
+            long ambivalent talks into midnight, all those
+            <br /><br />
+            glowy Sophia Coppola movies, Prosecco
+            <br /><br />
+            the sexiest records I know. I
+            don't feel
+            <br /><br />
+            how I know anymore to be more than something seeking
+            <br /><br />
+            my appalling lack of cinematic knowledge, fictive innocence
+            <br /><br />
+            & something
+            like the break-down of those little boxes
+            <br /><br />
+            little tombs put their hands up in front of my mouth
+            <br /><br />
+            there's a tacitly humiliating eulogy to drown out couldn't feel
+            <br /><br />
+            much more stupid about feeling stupid over feeling
+            <br /><br />
+            stupid, living. Let me go & watch something
+            <br /><br />
+            moving several images some of them symbolize humility broken
+            <br /><br />
+            postures bloodshot eyes, intimately talking through this
+            <br /><br />
+            publicly I am not developing at all but just the same
+
             <a
               href="https://www.poetryfoundation.org/poems/55982/dont-let-me-be-wistful"
               target="_blank"
@@ -45,26 +63,28 @@ class Endpage1 extends React.Component {
             >
               ...
             </a>
-          </p>
+
+          </p><br /><br />
           <section>
             {this.props.posts.map((p) => (
               <article key={p.post}>
                 <div>
-                  {p.post}
-                  <Link
-                    // to='/editpage'
-                    to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}
-                  >
-                    <button>Edit</button>
-                  </Link>
-                  
+                  {p.post}<br /><br />
+                  <div>
+                    <Link
+                      to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}
+                    >
+                     Edit
+                    </Link>
+                  </div>
 
                 </div>
               </article>
             ))}</section>
-          <div>
-            <Link to="/addpost"><em>add a line</em></Link>
-            <Router>
+
+          <div className="add-a-line">
+            <Link to="/addpost"><em>Add A Line</em></Link>
+            {/* <Router>
               <Route exact path="/addpost" render={(props) => (
                 <Post
                   handleAddPost={this.handleAddPost}
@@ -73,8 +93,9 @@ class Endpage1 extends React.Component {
                   handleDeleteEntry={props.handleDeleteEntry}
                   {...props}
                 />)} />
-            </Router>
+            </Router> */}
           </div>
+
         </div>
       </div>
     );

@@ -1,0 +1,29 @@
+.edit-container {
+    background-color: rgba(255, 244, 222, .75);
+    padding: 50px;
+    margin-left: 500px;
+    width: 300px;
+    border: solid 2px;
+    border-color: thistle;
+    border-radius: 10px;
+}
+.edit-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.edit-background {
+    background-color: #3333FF;
+    color: #E39D84;
+    height: 680px;
+    background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
+    background-size: initial; 
+}

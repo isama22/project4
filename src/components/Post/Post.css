@@ -1,0 +1,18 @@
+.add {
+    background-color: #3333FF;
+    color: #E39D84;
+    height: 1000px;
+    background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
+    background-size: initial; 
+}
+
+.add-form {
+    padding: 50px;
+
+}
+
+
+form {
+    margin: 0px;
+}
+

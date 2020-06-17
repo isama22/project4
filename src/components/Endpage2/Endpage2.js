@@ -1,11 +1,10 @@
 import React from 'react';
 import './Endpage2.css';
-import NavBar from '../../components/NavBar/NavBar';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 const Endpage2 = (props) => {
   return (
     <div className="main-div2">
-      <NavBar user={props.user} handleLogout={props.handleLogout}/>
       <br></br><br></br><br></br><br></br>
       <div className="p2">
         <p id="headerp2">
@@ -41,10 +40,9 @@ const Endpage2 = (props) => {
           Spring opens like a blade there.
           <a href="https://www.poetryfoundation.org/poems/48636/the-glass-essay" target="_blank" rel="noopener noreferrer" id="link">...</a>
         </p>
-        <form>
-        <input value="add your own line"/>
-        <button>submit</button>
-      </form>
+        <div className="add-a-line">
+            <Link to="/addpost"><em>Add A Line</em></Link>
+          </div>
       </div>
 
     </div>

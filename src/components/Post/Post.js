@@ -1,4 +1,5 @@
 import React from "react";
+import './Post.css';
 
 class Post extends React.Component {
     state = {
@@ -22,6 +23,9 @@ class Post extends React.Component {
     }
     render(){
         return (
+          <div className="add">
+            <div className="add-form">
+
             <form 
             ref={this.formRef} 
             autoComplete='off' 
@@ -34,7 +38,7 @@ class Post extends React.Component {
                   type="text"
                   value={this.state.formData.post}
                   onChange={this.handleChange}
-                />
+                  />
               </label>
               <button 
               type="submit"
@@ -44,6 +48,8 @@ class Post extends React.Component {
               </button>
       
             </form>
+              </div>
+              </div>
         )
     }
 }

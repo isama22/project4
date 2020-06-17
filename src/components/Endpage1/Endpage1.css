@@ -9,7 +9,7 @@
 }
 
 .p {
-    width: 400px;
+    width: 502px;
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
@@ -49,17 +49,27 @@ form {
 }
 
 article > div {
-    /* background-color: white; */
     margin-left: 20px;
-    width: 400px;
+    width: 350px;
     color: #d05a2f;
-  }
+    display: flex;
+    justify-content: space-between;
+}
   
-  span {
+span {
     color: #d05a2f;
-  }
+}
+
 form {
       margin-top: 40px;
       margin-bottom: 15px;
 
-  }
+}
+
+.add-a-line {
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+}

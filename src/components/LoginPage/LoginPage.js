@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 
 class LoginPage extends Component {
-  
+
   state = {
     email: '',
     pw: ''
@@ -36,39 +36,42 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div className="LoginPage">
-        <header className="header-footer">Log In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit} >
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input 
-              type="email" 
-              className="form-control" 
-              placeholder="Email" 
-              value={this.state.email} 
-              name="email" 
-              onChange={this.handleChange} />
+      <>
+        <div className="signup-page">
+          <br />
+          <div className="signup-container">
+            <header className="header-footer">Log In</header>
+            <div className="signup">
+              <form className="signup-form" onSubmit={this.handleSubmit} >
+                <div className="form-group">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email"
+                    value={this.state.email}
+                    name="email"
+                    onChange={this.handleChange} />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Password"
+                    value={this.state.pw}
+                    name="pw"
+                    onChange={this.handleChange} />
+                </div>
+                <div className="buttons-div">
+                  <div className="buttons">
+                    <button className="button">Log In</button>&nbsp;&nbsp;&nbsp;
+              <Link to='/' className="cancel">Cancel</Link>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input 
-              type="password" 
-              className="form-control" 
-              placeholder="Password" 
-              value={this.state.pw} 
-              name="pw" 
-              onChange={this.handleChange} />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
-            </div>
-          </div>
-        </form>
-      </div>
+        </div>
+      </>
     );
   }
 }
