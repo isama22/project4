@@ -72,7 +72,7 @@ class App extends React.Component {
 
         <Router>
 
-          <NavBar user={this.state.user} handleLogout={this.state.handleLogout} />
+          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Route
             exact
             path="/"
