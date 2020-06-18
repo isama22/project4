@@ -8,7 +8,11 @@ const dana3 = () => {
 
   return (
     <div id="main3">
-      <div id="text3">
+      <div className="text">
+      <p>is contained heat like things keep applicable boxes</p>
+      <p>at the ready then subsume their diverging constituent parts</p>
+      <div className="link-div">
+
         <Link className="dana3text" to="/addpost">long ambivalent talks into midnight, all those</Link>
         <Router>
           <Route exact path="/endpage1" render={(props) => (
@@ -20,15 +24,16 @@ const dana3 = () => {
             newPost={this.state.newPost}
             formRef={this.formRef}
             {...props} />
-          )} />
+            )} />
           <Route exact path="/addpost" render={(props) => (
             <AddPost
-              handleAddPost={this.handleAddPost}
-              posts={this.state.posts}
-              user={this.state.user}
-              {...props}
+            handleAddPost={this.handleAddPost}
+            posts={this.state.posts}
+            user={this.state.user}
+            {...props}
             />)} />
         </Router>
+            </div>
       </div>
     </div>
   );

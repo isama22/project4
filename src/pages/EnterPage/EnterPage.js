@@ -12,11 +12,11 @@ const EnterPage = () => {
       <div className="border">
         <h2>follow a line</h2>
         <div id="pdiv">
-          <Link id="p1" to="/dana1">The heat out there this evening</Link>
+          <Link id="p1" className="link-to-next-line" to="/dana1">The heat out there this evening</Link>
 
           <Link id="p2" to="/carson1">I can hear little clicks inside my dream.</Link>
           
-          <Link id="p2" to="/derksen1">There goes the</Link>
+          <Link id="p3" to="/derksen1">There goes the</Link>
           
           <Router>
           <Route exact path="/dana1" component={dana1} />

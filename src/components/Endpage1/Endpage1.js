@@ -80,6 +80,7 @@ class Endpage1 extends React.Component {
                   
                 </article>
               ))}</section>
+              <p><em className="ep1-footer">click on the ellipsis to see the full original poem</em></p>
             <div>
             </div>
           </div>

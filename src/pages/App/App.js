@@ -19,7 +19,9 @@ import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import * as postsService from "../../utils/postsService";
+import * as carsonPostsService from "../../utils/carsonPostsService";
 import AddPost from '../../components/AddPost/AddPost';
+import AddCarsonPost from '../../components/AddCarsonPost/AddCarsonPost';
 import Editpage from '../../components/Editpage/Editpage';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
@@ -31,6 +33,8 @@ class App extends React.Component {
       user: userService.getUser(),
       posts: [],
       newPost: "",
+      carsonPosts: [],
+      newCarsonPost: "",
       formInvalid: true,
     };
   }
@@ -69,10 +73,26 @@ class App extends React.Component {
     }), () => history.push('/endpage1'));
   }
 
+  handleAddCarsonPost = async (newCarsonPostData, history) => {
+    const newCarsonPost = await carsonPostsService.create(newCarsonPostData);
+    this.setState(state => ({
+      items: [...state.carsonPosts, newCarsonPost]
+    }),
+      () => history.push('/endpage2'));
+  }
+
+
   async componentDidMount() {
     const posts = await postsService.index();
     this.setState({ posts });
+    const carsonPosts = await carsonPostsService.index();
+    this.setState({ carsonPosts });
   }
+
+  // async componentDidMount() {
+  //   const carsonPosts = await carsonPostsService.index();
+  //   this.setState({ carsonPosts });
+  // }
 
   render() {
     return (
@@ -117,7 +137,17 @@ class App extends React.Component {
           <Route
             exact
             path="/endpage2"
-            render={(props) => <Endpage2 user={this.state.user} {...props} />}
+            render={(props) => (
+            <Endpage2 
+            user={this.state.user} 
+            handleAddCarsonPost={this.handleAddCarsonPost}
+            handleChange={this.handleChange}
+            carsonPosts={this.state.carsonPosts}
+            newCarsonPost={this.state.newCarsonPost}
+            formRef={this.formRef}
+            {...props} 
+            />
+            )}
           />
           <Route
             exact
@@ -190,6 +220,20 @@ class App extends React.Component {
           <Route exact path="/carson1" component={carson1} />
           <Route exact path="/carson2" component={carson2} />
           <Route exact path="/carson3" component={carson3} />
+          <Route
+            exact path="/addcarsonpost"
+            render={({ history }) => (
+              userService.getUser() ? (
+                <AddCarsonPost
+                  history={history}
+                  handleAddCarsonPost={this.handleAddCarsonPost}
+                  carsonPosts={this.state.carsonPosts}
+                  user={this.state.user}
+                />
+              ) : (
+                  <Redirect to="/login" /> )
+            )}
+          />
           <Route exact path="/derksen1" component={derksen1} />
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />

@@ -2,21 +2,17 @@
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-image: url("https://i.postimg.cc/kGTT2St5/Screen-Shot-2020-05-27-at-1-17-33-PM.png");
     height: 690px;
     background-size: cover;  
-
-    
 }
 
-#text {
-    margin: 170px;
-}
-#line2 {
-    color: white;
+.link-to-next-line {
+    color: wheat;
     text-decoration: none;
    
 }
-#line2:hover {
+.link-to-next-line:hover {
     color: aqua;
 }

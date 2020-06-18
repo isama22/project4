@@ -31,22 +31,24 @@ h2 {
 }
 
 #p1 {
-    color: white;
+    color: wheat;
     text-decoration: none;
 }
 #p1:hover {
     color: aqua;
-    
 }
 
 #p2 {
-    color: white;
+    color: wheat;
     text-decoration: none; 
 }
 #p2:hover {
     color: orange;
 }
 
+#p3 {
+    color: wheat;
+}
 #p3:hover {
     color: red;
 }

@@ -2,18 +2,12 @@
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     background-image: url("https://i.postimg.cc/YSdwWkwR/IMG-5712.jpg");
     height: 690px;
     background-size: cover; 
 }
 
-#text2 {
-    margin-top: 220px
-}
-#line3 {
-    color: white;
-    text-decoration: none;
-}
-#line3:hover {
-    color: aqua;
+.link-div {
+    /* margin-top: 70px; */
 }
