@@ -6,7 +6,7 @@ import * as postsService from "../../utils/postsService";
 class Editpage extends Component {
     constructor(props) {
         super(props)
-
+        console.log(props)
         // const foundPost = await postsService.findNewPost(this.props.match.params.id)
         this.state = {
 
@@ -18,6 +18,7 @@ class Editpage extends Component {
     formRef = React.createRef()
 
     handleSubmit = e => {
+        console.log("word")
         e.preventDefault()
         this.props.handleUpdatePost(this.state.formData)
         this.props.history.push('/endpage1')
@@ -49,36 +50,37 @@ class Editpage extends Component {
                             <header>Edit Line</header>
                         </div>
                         <div className="edit-body">
-                        <form
-                            ref={this.formRef}
-                            autoComplete='off'
-                            onSubmit={this.handleSubmit}
-                        >
-                            <input
-                                className="edit-input"
-                                name='post'
-                                type='text'
-                                value={this.state.formData.post}
-                                onChange={this.handleChange}
-                                required
+                            <form
+                                ref={this.formRef}
+                                autoComplete='off'
+                                onSubmit={this.handleSubmit}
                             >
-                            </input>
-                            <div className="edit-buttons">
-                                <button
-                                    
+                                <input
+                                    className="edit-input"
+                                    name='post'
+                                    type='text'
+                                    value={this.state.formData.post}
+                                    onChange={this.handleChange}
+                                    required
+                                >
+                                </input>
+                                                                <button
                                     type='submit'
                                     disabled={this.state.invalidForm}
                                 >Update
                                 </button>
-                                <button>
-                                    Delete
+                            </form>
+                            <div className="edit-buttons">
+
+                                <button
+                                    onClick={() => this.props.handleDeletePost(this.props.match.params.id, this.props.history)}
+                                >Delete
                                 </button>
-                                <Link  to='/endpage1'>Cancel</Link>
+                                <Link to='/endpage1'>Cancel</Link>
 
                             </div>
-                        </form>
                         </div>
-                        
+
                     </div>
                 </div>
             </>

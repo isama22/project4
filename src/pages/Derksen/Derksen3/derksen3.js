@@ -1,6 +1,6 @@
 import React from 'react';
 import './derksen3.css';
-import Endpage3 from '../../components/Endpage3/Endpage3';
+import Endpage3 from '../../../components/Endpage3/Endpage3';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const derksen3 = () => {
 

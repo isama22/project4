@@ -1,6 +1,6 @@
 import React from 'react';
 import './carson1.css';
-import carson2 from '../../pages/carson2/carson2';
+import carson2 from '../Carson2/carson2';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const carson1 = () => {
 

@@ -43,7 +43,7 @@ p {
     justify-content: flex-end;
     margin: 30px; */
     color: white;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 #link:hover {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './derksen1.css';
-import derksen2 from '../../pages/derksen2/derksen2';
+import derksen2 from '../../../pages/Derksen/Derksen2/derksen2';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const derksen1 = () => {
 

@@ -1,7 +1,7 @@
 import React from "react";
-import './Post.css';
+import './AddPost.css';
 
-class Post extends React.Component {
+class AddPost extends React.Component {
   state = {
     invalidForm: true,
     formData: { posts: '' }
@@ -27,7 +27,7 @@ class Post extends React.Component {
         <div className="add-container">
           <div className="add-label">
             <label>
-              <em>Your Turn To Create The Next Line</em>&nbsp;
+              <em>Create The Next Line</em>&nbsp;
           </label>
           </div>
           <form
@@ -54,4 +54,4 @@ class Post extends React.Component {
   }
 }
 
-export default Post;
+export default AddPost;

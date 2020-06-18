@@ -12,9 +12,9 @@ export function index() {
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
- export function create(post) {
+export function create(post) {
     const options = {
-        method: 'POST', 
+        method: 'POST',
         headers: {
             'Content-type': 'application/json',
             'Authorization': 'Bearer ' + tokenService.getToken()
@@ -27,21 +27,23 @@ export function index() {
 export function update(post) {
     return fetch(`${BASE_URL}/${post._id}`, {
         method: 'PUT',
-        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()},
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
         body: JSON.stringify(post)
     }).then(res => res.json())
 }
-
-
+//second part to update above
 export function findNewPost(id) {
     console.log(id)
     return fetch(`${BASE_URL}/${id}`, {
         method: 'GET',
-        headers: {'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken()}
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() }
     }).then(res => res.json())
 }
 
-// export default {
-//   index,
-//   create
-// }
+export function deleteOne(id) {
+    console.log(id)
+    return fetch(`${BASE_URL}/${id}`, {
+        method: 'DELETE',
+        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() }
+    }).then(res => res.json())
+}

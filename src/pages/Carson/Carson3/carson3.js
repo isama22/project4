@@ -1,6 +1,6 @@
 import React from 'react';
 import './carson3.css';
-import Endpage2 from '../../components/Endpage2/Endpage2';
+import Endpage2 from '../../../components/Endpage2/Endpage2';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const carson3 = () => {

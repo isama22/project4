@@ -2,15 +2,17 @@ import React from "react";
 import "./App.css";
 import Home from "../../pages/Home/Home.js";
 import EnterPage from "../../pages/EnterPage/EnterPage";
-import dana1 from "../../pages/dana1/dana1";
-import dana2 from "../../pages/dana2/dana2";
-import dana3 from "../../pages/dana3/dana3";
-import carson1 from "../../pages/carson1/carson1";
-import carson2 from "../../pages/carson2/carson2";
-import carson3 from "../../pages/carson3/carson3";
-import derksen1 from "../../pages/derksen1/derksen1";
-import derksen2 from "../../pages/derksen2/derksen2";
-import derksen3 from "../../pages/derksen3/derksen3";
+import dana1 from '../../pages/Dana/Dana1/dana1'
+import dana2 from '../../pages/Dana/Dana2/dana2'
+import dana3 from '../../pages/Dana/Dana3/dana3'
+
+import carson1 from "../../pages/Carson/Carson1/carson1";
+import carson2 from "../../pages/Carson/Carson2/carson2";
+import carson3 from "../../pages/Carson/Carson3/carson3";
+
+import derksen1 from "../../pages/Derksen/Derksen1/derksen1";
+import derksen2 from "../../pages/Derksen/Derksen2/derksen2";
+import derksen3 from "../../pages/Derksen/Derksen3/derksen3";
 import Endpage1 from "../../components/Endpage1/Endpage1";
 import Endpage2 from "../../components/Endpage2/Endpage2";
 import Endpage3 from "../../components/Endpage3/Endpage3";
@@ -18,8 +20,8 @@ import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import * as postsService from "../../utils/postsService";
-import NavBar from '../../components/NavBar/NavBar';
-import Post from '../../components/Post/Post';
+// import NavBar from '../../components/NavBar/NavBar';
+import AddPost from '../../components/AddPost/AddPost';
 import Editpage from '../../components/Editpage/Editpage';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -36,15 +38,7 @@ class App extends React.Component {
   }
 
   formRef = React.createRef();
-
-  handleAddPost = async (newPostData, history) => {
-    const newPost = await postsService.create(newPostData);
-    this.setState(state => ({
-      items: [...state.posts, newPost]
-    }),
-      () => history.push('/endpage1'));
-  }
-
+  
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -54,11 +48,27 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
+  handleAddPost = async (newPostData, history) => {
+    const newPost = await postsService.create(newPostData);
+    this.setState(state => ({
+      items: [...state.posts, newPost]
+    }),
+      () => history.push('/endpage1'));
+  }
+
   handleUpdatePost = async updatedPostData => {
     const updatedPost = await postsService.update(updatedPostData)
     const newpostsArray = this.state.posts.map(e => 
       e._id === updatedPost._id ? updatedPost : e)
       this.setState({ posts: newpostsArray })
+  }
+
+  handleDeletePost= async (id, history) => {
+    console.log(id)
+    await postsService.deleteOne(id);
+    this.setState(state => ({
+      posts: state.posts.filter(b => b._id !== id)
+    }), () => history.push('/endpage1') ) ;
   }
 
   async componentDidMount() {
@@ -71,8 +81,8 @@ class App extends React.Component {
       <div className="App">
 
         <Router>
-
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+{/* 
+          <NavBar user={this.state.user} handleLogout={this.handleLogout} /> */}
           <Route
             exact
             path="/"
@@ -137,7 +147,7 @@ class App extends React.Component {
           <Route
             exact path="/addpost"
             render={({ history }) => (
-              <Post
+              <AddPost
                 history={history}
                 handleAddPost={this.handleAddPost}
                 posts={this.state.posts}
@@ -147,9 +157,12 @@ class App extends React.Component {
               <Route path="/editpage/:id" render={(props) => (
                 <Editpage
                   {...props}
+                  
                   handleUpdatePost={this.handleUpdatePost}
                   // posts={p.post}
+                  posts={this.state.posts}
                   user={this.state.user}
+                  handleDeletePost={this.handleDeletePost}
 
                 /> )} />
           <Route exact path="/dana1" component={dana1} />

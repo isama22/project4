@@ -1,8 +1,8 @@
 import React from 'react';
 import './EnterPage.css';
-import dana1 from '../../pages/dana1/dana1';
-import carson1 from '../../pages/carson1/carson1';
-import derksen1 from '../../pages/derksen1/derksen1';
+import dana1 from '../../pages/Dana/Dana1/dana1';
+import carson1 from '../../pages/Carson/Carson1/carson1';
+import derksen1 from '../../pages/Derksen/Derksen1/derksen1';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const EnterPage = () => {

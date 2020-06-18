@@ -4,12 +4,14 @@ module.exports = {
     create,
     poemPosts,
     update,
-    findPost
+    findPost,
+    deleteOne
 
 }
 
 async function create(req, res) {
     req.body.user = req.user._id
+    req.body.creator = req.user.name
     try {
         await Post.create(req.body)
         poemPosts(req, res)
@@ -42,5 +44,16 @@ async function findPost(req, res) {
     }
     catch(err){
         res.status(500).json(err)
+    }
+}
+
+
+async function deleteOne(req, res) {
+    try{
+        const deletedPost = await Post.findByIdAndRemove(req.params.id);
+        res.status(200).json(deletedPost);
+    }
+    catch(err){
+        res.status(500).json(err);
     }
 }
