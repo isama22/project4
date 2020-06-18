@@ -1,6 +1,4 @@
 .signup-page {
-    /* background-color: wheat;
-    height: 700px; */
     height: 1000px;
     background-image: url("https://media3.giphy.com/media/QWvrm9qorO2SJMtgYs/giphy.gif");
     background-size: 1100px;
@@ -12,15 +10,12 @@
 .signup-container {
     background-color: rgba(180, 73, 12, .75);
     padding: 20px;
-    /* margin: 20px; */
     width: 500px;
     border-radius: 10px;
     border: solid 2px;
     border-color: black;
     margin-left: 450px;
     margin-top: 90px;
-    /* z-index: -1; */
-
 }
 
 .signup {
@@ -28,10 +23,6 @@
     justify-content: center;
     font-family: 'Josefin Sans', sans-serif;
     width: 500px;
-    /* margin-left: 470px; */
-    /* z-index: 1; */
-    
-
 }
 
 .signup-form {
@@ -45,14 +36,6 @@
     margin: 20px;
     justify-content: center;
     font-family: 'Josefin Sans', sans-serif;
-}
-
-.cancel {
-    text-decoration: none;
-
-}
-.cancel:hover {
-        color: blue;
 }
 
 .form-group {
@@ -103,8 +86,10 @@
     text-decoration: none;
     color: black;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .cancel:hover {
     font-weight: bold;
+    color: blue;
 } 

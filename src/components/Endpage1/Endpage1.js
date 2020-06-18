@@ -2,10 +2,8 @@ import React from "react";
 import "./Endpage1.css";
 import { Link } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar';
-// import "../../utils/userService";
 
 class Endpage1 extends React.Component {
-  // props.user = user === null ? user = NaN : user
 
   render() {
     const { props } = this;
@@ -59,7 +57,7 @@ class Endpage1 extends React.Component {
                 href="https://www.poetryfoundation.org/poems/55982/dont-let-me-be-wistful"
                 target="_blank"
                 rel="noopener noreferrer"
-                id="link"
+               
               >...</a>
             </p>
             <section>
@@ -67,12 +65,13 @@ class Endpage1 extends React.Component {
                 <article key={p.post}>
                   <div>
                     <p>
-                      {p.post}<em> by  {p.creator}</em>
+                      {p.post}
+                      <em className="created-by"> by {p.creator}</em>
                       &nbsp;
                       
                       {this.props.user._id === p.user && 
-                      // {this.props.user._id === p.user._id ? <p>lol</p> : <p>olo</p>}
                     <Link
+                        className="edit-link"
                       to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}>
                       Edit
                   </Link>

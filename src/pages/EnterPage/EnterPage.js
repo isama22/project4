@@ -11,7 +11,6 @@ const EnterPage = () => {
       <br></br><br></br><br></br>
       <div className="border">
         <h2>follow a line</h2>
-        {/* <p>put in three sentences as links, need to import those pages, have the Link and Route components</p> */}
         <div id="pdiv">
           <Link id="p1" to="/dana1">The heat out there this evening</Link>
 

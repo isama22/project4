@@ -7,7 +7,6 @@ class Editpage extends Component {
     constructor(props) {
         super(props)
         console.log(props)
-        // const foundPost = await postsService.findNewPost(this.props.match.params.id)
         this.state = {
 
             invalidForm: false,
@@ -53,34 +52,32 @@ class Editpage extends Component {
                             <form
                                 ref={this.formRef}
                                 autoComplete='off'
-                                onSubmit={this.handleSubmit}
-                            >
+                                onSubmit={this.handleSubmit}>
                                 <input
                                     className="edit-input"
                                     name='post'
                                     type='text'
                                     value={this.state.formData.post}
                                     onChange={this.handleChange}
-                                    required
-                                >
+                                    required>
                                 </input>
-                                                                <button
+                                <button
+                                    className="button"
                                     type='submit'
                                     disabled={this.state.invalidForm}
                                 >Update
                                 </button>
                             </form>
                             <div className="edit-buttons">
-
-                                <button
-                                    onClick={() => this.props.handleDeletePost(this.props.match.params.id, this.props.history)}
+                                <p 
+                                className="delete"
+                                onClick={() => this.props.handleDeletePost(this.props.match.params.id, this.props.history)}
                                 >Delete
-                                </button>
-                                <Link to='/endpage1'>Cancel</Link>
-
+                                </p>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <p><Link  to='/endpage1'>Cancel</Link></p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </>

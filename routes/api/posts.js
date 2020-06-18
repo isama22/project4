@@ -4,8 +4,6 @@ const postsCtrl = require('../../controllers/posts')
 
 router.get('/', postsCtrl.poemPosts)
 
-// protected routes //
-
 router.use(require('../../config/auth'))
 
 router.post('/', checkAuth, postsCtrl.create)

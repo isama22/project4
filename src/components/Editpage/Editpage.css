@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 680px;
+    height: 690px;
     background-image: url("https://i.postimg.cc/3rF6hdJM/Screen-Shot-2020-05-25-at-10-30-56-PM.png");   
     background-size: cover;
     background-repeat: no-repeat;
@@ -28,14 +28,32 @@
     cursor: pointer;
     font-size: 12px;
     border: 1px solid black;
-    /* border-radius: 5px; */
 }
 
 .edit-body {
     display: flex;
     flex-direction: column;
 }
-.edit-buttons {
+
+/* .edit-buttons-div {
     display: flex;
     flex-direction: column;
+    width: 77px;
+    margin-left: 177px;
+} */
+.edit-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: black;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.delete {
+    cursor: pointer;
+}
+
+.delete:hover {
+    font-weight: bold;
 }

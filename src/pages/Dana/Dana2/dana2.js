@@ -1,6 +1,5 @@
 import React from 'react';
 import './dana2.css';
-// import dana3 from '../../../pages/dana3/dana3';
 import dana3 from '../../../pages/Dana/Dana3/dana3';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 

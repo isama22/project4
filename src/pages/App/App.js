@@ -9,7 +9,6 @@ import dana3 from '../../pages/Dana/Dana3/dana3'
 import carson1 from "../../pages/Carson/Carson1/carson1";
 import carson2 from "../../pages/Carson/Carson2/carson2";
 import carson3 from "../../pages/Carson/Carson3/carson3";
-
 import derksen1 from "../../pages/Derksen/Derksen1/derksen1";
 import derksen2 from "../../pages/Derksen/Derksen2/derksen2";
 import derksen3 from "../../pages/Derksen/Derksen3/derksen3";
@@ -20,7 +19,6 @@ import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import * as postsService from "../../utils/postsService";
-// import NavBar from '../../components/NavBar/NavBar';
 import AddPost from '../../components/AddPost/AddPost';
 import Editpage from '../../components/Editpage/Editpage';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";

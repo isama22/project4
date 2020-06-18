@@ -11,19 +11,16 @@
 .ep1-container {
     margin-left: 340px;
 }
+
 .p {
     width: 502px;
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
-    /* margin-left: 430px; */
     background-color: blue;
     border: solid 2px;
     border-color: #540b06;
     padding: 20px;
     margin: 100px;
-
-
 }
 
 #headerp {
@@ -31,19 +28,9 @@
     justify-content: space-evenly;
     margin: 0;
 }
-p {
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    /* margin: 0px; */
-}
 
 #link {
-    /* display: flex;
-    justify-content: flex-end;
-    margin: 30px; */
     color: white;
-    /* text-decoration: none; */
 }
 
 #link:hover {
@@ -55,7 +42,6 @@ article > div {
     width: 350px;
     color: #d05a2f;
     display: flex;
-    justify-content: space-between;
     padding: 5px;
 }
   
@@ -68,7 +54,6 @@ form {
       margin-bottom: 15px;
       display: flex;
       justify-content: center;
-
 }
 
 .add-a-line {
@@ -77,4 +62,13 @@ form {
 
 a {
     text-decoration: none;
+}
+
+.created-by {
+    color: grey;
+}
+
+.edit-link {
+    color: red;
+    font-size: 11px;
 }

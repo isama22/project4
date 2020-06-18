@@ -9,14 +9,10 @@
    
    display: flex;
     justify-content: center;
-    /* align-items: center; */
-    /* align-items: center; */
     background-image: url("https://i.postimg.cc/zfyPCc6T/Screen-Shot-2020-05-16-at-12-15-40-AM.png");
-    /* height: 1000px; */
     background-size: initial;
     background-repeat: no-repeat;
     margin-left: 400px;
-    /* margin-top: 200px; */
     height: 800px;
 }
 
