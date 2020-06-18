@@ -44,7 +44,7 @@ class EditCarsonPost extends Component {
     render() {
         return (
             <>
-                <div className="edit-page">
+                <div className="carson-edit-page">
                     <div className="edit-container">
                         <div className="edit-header">
                             <header>Edit Line</header>
@@ -70,11 +70,11 @@ class EditCarsonPost extends Component {
                                 </button>
                             </form>
                             <div className="edit-buttons">
-                                {/* <p 
+                                <p 
                                 className="delete"
-                                onClick={() => this.props.handleDeletePost(this.props.match.params.id, this.props.history)}
+                                onClick={() => this.props.handleDeleteCarsonPost(this.props.match.params.id, this.props.history)}
                                 >Delete
-                                </p> */}
+                                </p>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <p><Link  to='/endpage2'>Cancel</Link></p>
                             </div>

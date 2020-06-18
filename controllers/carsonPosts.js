@@ -5,7 +5,7 @@ module.exports = {
     index,
     update,
     findCarsonPost,
-    // deleteOne
+    deleteOne
 
 }
 
@@ -44,5 +44,15 @@ async function findCarsonPost(req, res) {
     }
     catch(err){
         res.status(500).json(err)
+    }
+}
+
+async function deleteOne(req, res) {
+    try{
+        const deletedCarsonPost = await carsonPost.findByIdAndRemove(req.params.id);
+        res.status(200).json(deletedCarsonPost);
+    }
+    catch(err){
+        res.status(500).json(err);
     }
 }

@@ -5,7 +5,6 @@ import EnterPage from "../../pages/EnterPage/EnterPage";
 import dana1 from '../../pages/Dana/Dana1/dana1'
 import dana2 from '../../pages/Dana/Dana2/dana2'
 import dana3 from '../../pages/Dana/Dana3/dana3'
-
 import carson1 from "../../pages/Carson/Carson1/carson1";
 import carson2 from "../../pages/Carson/Carson2/carson2";
 import carson3 from "../../pages/Carson/Carson3/carson3";
@@ -87,6 +86,14 @@ class App extends React.Component {
     const newcarsonpostsArray = this.state.carsonPosts.map(e =>
       e._id === updatedCarsonPost._id ? updatedCarsonPost : e)
     this.setState({ carsonPosts: newcarsonpostsArray })
+  }
+
+  handleDeleteCarsonPost = async (id, history) => {
+    console.log(id)
+    await carsonPostsService.deleteOne(id);
+    this.setState(state => ({
+      carsonPosts: state.carsonPosts.filter(b => b._id !== id)
+    }), () => history.push('/endpage2'));
   }
 
   async componentDidMount() {
@@ -246,7 +253,7 @@ class App extends React.Component {
                   carsonPosts={this.state.carsonPosts}
                   handleUpdateCarsonPost={this.handleUpdateCarsonPost}
                   user={this.state.user}
-                  // handleDeletePost={this.handleDeletePost}
+                  handleDeleteCarsonPost={this.handleDeleteCarsonPost}
                 />
               ) : (
                   <Redirect to="/login" />
