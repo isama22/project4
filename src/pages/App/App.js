@@ -96,9 +96,7 @@ class App extends React.Component {
             render={(props) =>
               userService.getUser() ? (
                 <EnterPage {...props} />
-              ) : (
-                  <Redirect to="/login" />
-                )
+              ) : ( <Redirect to="/login" /> )
             }
           />
           <Route
@@ -149,28 +147,35 @@ class App extends React.Component {
           <Route
             exact path="/addpost"
             render={({ history }) => (
-              <AddPost
-                history={history}
-                handleAddPost={this.handleAddPost}
-                posts={this.state.posts}
-                user={this.state.user}
-              />)}
+              userService.getUser() ? (
+                <AddPost
+                  history={history}
+                  handleAddPost={this.handleAddPost}
+                  posts={this.state.posts}
+                  user={this.state.user}
+                />
+              ) : (
+                  <Redirect to="/login" /> )
+            )}
           />
-          <Route path="/editpage/:id" render={(props) => (
-            <Editpage
-              {...props}
-
-              handleUpdatePost={this.handleUpdatePost}
-              // posts={p.post}
-              posts={this.state.posts}
-              user={this.state.user}
-              handleDeletePost={this.handleDeletePost}
-
-            />)} />
-
+          <Route
+            path="/editpage/:id"
+            render={(props) => (
+              userService.getUser() ? (
+                <Editpage
+                  {...props}
+                  handleUpdatePost={this.handleUpdatePost}
+                  posts={this.state.posts}
+                  user={this.state.user}
+                  handleDeletePost={this.handleDeletePost}
+                />
+              ) : (
+                  <Redirect to="/login" />
+                )
+            )}
+          />
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
-
           <Route
             exact
             path="/dana3"
@@ -181,7 +186,6 @@ class App extends React.Component {
               />
             )}
           />
-
           <Route exact path="/dana3" component={dana3} />
           <Route exact path="/carson1" component={carson1} />
           <Route exact path="/carson2" component={carson2} />

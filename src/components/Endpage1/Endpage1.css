@@ -29,24 +29,8 @@
     margin: 0;
 }
 
-#link {
-    color: white;
-}
-
-#link:hover {
-    color: orangered;
-}
-
-article > div {
-    margin-left: 20px;
-    width: 350px;
-    color: #d05a2f;
-    display: flex;
-    padding: 5px;
-}
-  
-span {
-    color: #d05a2f;
+.added-lines {
+    color: #d05a2f; 
 }
 
 form {

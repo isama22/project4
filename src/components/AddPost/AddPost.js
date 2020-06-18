@@ -1,5 +1,6 @@
 import React from "react";
 import './AddPost.css';
+import { Link } from 'react-router-dom'
 
 class AddPost extends React.Component {
   state = {
@@ -49,6 +50,7 @@ class AddPost extends React.Component {
             >+</button>
           </form>
         </div>
+        <Link className="skip" to="/endpage1"><em>skip</em></Link>
       </div>
     )
   }

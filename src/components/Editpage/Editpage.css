@@ -35,12 +35,6 @@
     flex-direction: column;
 }
 
-/* .edit-buttons-div {
-    display: flex;
-    flex-direction: column;
-    width: 77px;
-    margin-left: 177px;
-} */
 .edit-buttons {
     display: flex;
     flex-direction: row;

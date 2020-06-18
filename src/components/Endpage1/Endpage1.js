@@ -63,8 +63,8 @@ class Endpage1 extends React.Component {
             <section>
               {this.props.posts.map((p) => (
                 <article key={p.post}>
-                  <div>
-                    <p>
+                
+                    <p className="added-lines">
                       {p.post}
                       <em className="created-by"> by {p.creator}</em>
                       &nbsp;
@@ -77,7 +77,7 @@ class Endpage1 extends React.Component {
                   </Link>
                       }
                       </p>
-                  </div>
+                  
                 </article>
               ))}</section>
             <div>

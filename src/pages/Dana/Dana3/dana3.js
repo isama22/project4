@@ -9,7 +9,7 @@ const dana3 = () => {
   return (
     <div id="main3">
       <div id="text3">
-        <Link className="dana3text" to="/addpost"><em></em>long ambivalent talks into midnight, all those</Link>
+        <Link className="dana3text" to="/addpost">long ambivalent talks into midnight, all those</Link>
         <Router>
           <Route exact path="/endpage1" render={(props) => (
             <Endpage1 
