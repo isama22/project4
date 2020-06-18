@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import NavBar from '../../components/NavBar/NavBar';
 
 class LoginPage extends Component {
 
@@ -35,9 +36,11 @@ class LoginPage extends Component {
   };
 
   render() {
+    const { props } = this;
     return (
       <>
         <div className="signup-page">
+        <NavBar user={props.user} handleLogout={props.handleLogout}/>
           <br />
           <div className="signup-container">
             <header className="header-footer">Log In</header>
