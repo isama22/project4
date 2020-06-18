@@ -183,8 +183,8 @@ class App extends React.Component {
               />
             )}
           />
-{/* 
-          <Route exact path="/dana3" component={dana3} /> */}
+
+          <Route exact path="/dana3" component={dana3} />
           <Route exact path="/carson1" component={carson1} />
           <Route exact path="/carson2" component={carson2} />
           <Route exact path="/carson3" component={carson3} />

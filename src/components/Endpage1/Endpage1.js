@@ -69,15 +69,15 @@ class Endpage1 extends React.Component {
                     <p>
                       {p.post}<em> by  {p.creator}</em>
                       &nbsp;
-                      </p>
-                      {this.props.user._id === p.user.id && 
+                      
+                      {this.props.user._id === p.user && 
                       // {this.props.user._id === p.user._id ? <p>lol</p> : <p>olo</p>}
                     <Link
                       to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}>
                       Edit
                   </Link>
-                  
                       }
+                      </p>
                   </div>
                 </article>
               ))}</section>
