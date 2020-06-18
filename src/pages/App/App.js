@@ -23,7 +23,7 @@ import * as postsService from "../../utils/postsService";
 // import NavBar from '../../components/NavBar/NavBar';
 import AddPost from '../../components/AddPost/AddPost';
 import Editpage from '../../components/Editpage/Editpage';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   formRef = React.createRef();
-  
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -58,17 +58,17 @@ class App extends React.Component {
 
   handleUpdatePost = async updatedPostData => {
     const updatedPost = await postsService.update(updatedPostData)
-    const newpostsArray = this.state.posts.map(e => 
+    const newpostsArray = this.state.posts.map(e =>
       e._id === updatedPost._id ? updatedPost : e)
-      this.setState({ posts: newpostsArray })
+    this.setState({ posts: newpostsArray })
   }
 
-  handleDeletePost= async (id, history) => {
+  handleDeletePost = async (id, history) => {
     console.log(id)
     await postsService.deleteOne(id);
     this.setState(state => ({
       posts: state.posts.filter(b => b._id !== id)
-    }), () => history.push('/endpage1') ) ;
+    }), () => history.push('/endpage1'));
   }
 
   async componentDidMount() {
@@ -81,8 +81,6 @@ class App extends React.Component {
       <div className="App">
 
         <Router>
-{/* 
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} /> */}
           <Route
             exact
             path="/"
@@ -97,7 +95,13 @@ class App extends React.Component {
           <Route
             exact
             path="/enter"
-            render={(props) => <EnterPage {...props} />}
+            render={(props) =>
+              userService.getUser() ? (
+                <EnterPage {...props} />
+              ) : (
+                  <Redirect to="/login" />
+                )
+            }
           />
           <Route
             exact
@@ -154,20 +158,33 @@ class App extends React.Component {
                 user={this.state.user}
               />)}
           />
-              <Route path="/editpage/:id" render={(props) => (
-                <Editpage
-                  {...props}
-                  
-                  handleUpdatePost={this.handleUpdatePost}
-                  // posts={p.post}
-                  posts={this.state.posts}
-                  user={this.state.user}
-                  handleDeletePost={this.handleDeletePost}
+          <Route path="/editpage/:id" render={(props) => (
+            <Editpage
+              {...props}
 
-                /> )} />
+              handleUpdatePost={this.handleUpdatePost}
+              // posts={p.post}
+              posts={this.state.posts}
+              user={this.state.user}
+              handleDeletePost={this.handleDeletePost}
+
+            />)} />
+
           <Route exact path="/dana1" component={dana1} />
           <Route exact path="/dana2" component={dana2} />
-          <Route exact path="/dana3" component={dana3} />
+
+          <Route
+            exact
+            path="/dana3"
+            render={(props) => (
+              <dana3
+                user={this.state.user}
+                {...props}
+              />
+            )}
+          />
+{/* 
+          <Route exact path="/dana3" component={dana3} /> */}
           <Route exact path="/carson1" component={carson1} />
           <Route exact path="/carson2" component={carson2} />
           <Route exact path="/carson3" component={carson3} />

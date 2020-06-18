@@ -5,7 +5,7 @@ import NavBar from '../../components/NavBar/NavBar';
 // import "../../utils/userService";
 
 class Endpage1 extends React.Component {
-  // user = user === null ? user = NaN : user
+  // props.user = user === null ? user = NaN : user
 
   render() {
     const { props } = this;
@@ -66,14 +66,18 @@ class Endpage1 extends React.Component {
               {this.props.posts.map((p) => (
                 <article key={p.post}>
                   <div>
-                    {p.post}
+                    <p>
+                      {p.post}<em> by  {p.creator}</em>
+                      &nbsp;
+                      </p>
+                      {this.props.user._id === p.user.id && 
+                      // {this.props.user._id === p.user._id ? <p>lol</p> : <p>olo</p>}
                     <Link
                       to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}>
                       Edit
                   </Link>
-                    {/* {user._id &&
-                      <p>{p.creator}</p>
-                    } */}
+                  
+                      }
                   </div>
                 </article>
               ))}</section>
