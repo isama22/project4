@@ -11,6 +11,9 @@ const carson3 = () => {
       <br></br><br></br><br></br><br></br>
       <div className="main3-c">
         <div id="text3-c">
+          <p>I can hear little clicks inside my dream.</p>
+          <p>Night drips its silver tap</p>
+          <p>down the back.</p>
           <Link id="line4-c" to="/addcarsonpost">At 4 A.M. I wake. Thinking</Link>
           <Router>
             <Route exact path="/endpage2" render={(props) => (

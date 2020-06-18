@@ -8,6 +8,8 @@ const carson2 = () => {
   return (
     <div id="main2-c">
       <div id="text2-c">
+      <p>I can hear little clicks inside my dream.</p>
+        <p>Night drips its silver tap</p>
         <Link id="line3-c" to="/carson3">down the back.</Link>
         <Router>
           <Route exact path="/carson3" component={carson3} />
