@@ -2,7 +2,7 @@ Demarcate is a collaborative exquisite corpse style poetry app. Users can log in
 <br><br>
 Demarcate is a verb that means to set the limits or boundaries of, or to be seperated or distinguished from. It for me also evokes the idea of mark making. These poems are both limited in length and changed by the multiple visitors that leave behind their individual mark.
 
-<strong>technologies:</strong> Mongo, Express, React, Node
+<strong>technologies:</strong> Mongo, Express, React, Node, JWT
 <br><br>
 <strong>trello:</strong> https://trello.com/b/MLlfs0ya/project-4
 <br><br>
