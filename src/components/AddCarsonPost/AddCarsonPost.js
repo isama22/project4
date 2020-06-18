@@ -24,7 +24,7 @@ class AddCarsonPost extends React.Component {
   }
   render() {
     return (
-      <div className="add-page">
+      <div className="carson-add-page">
         <div className="add-container">
           <div className="add-label">
             <label>

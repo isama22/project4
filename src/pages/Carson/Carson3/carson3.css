@@ -1,11 +1,11 @@
-#bgcolor {
+.bgcolor {
     background-color: thistle;
     height: 1000px;
     background-image: url("https://i.postimg.cc/HWZ4MmPV/Screen-Shot-2020-05-28-at-1-59-20-AM.png");
     background-size: cover;
    
 }
-#main3-c {
+.main3-c {
    
    display: flex;
     justify-content: center;
@@ -27,5 +27,5 @@
     text-decoration: none;
 }
 #line4-c:hover {
-    color: aqua;
+    color: orange;
 }

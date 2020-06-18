@@ -7,9 +7,9 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const carson3 = () => {
 
   return (
-    <div id="bgcolor">
+    <div className="bgcolor">
       <br></br><br></br><br></br><br></br>
-      <div id="main3-c">
+      <div className="main3-c">
         <div id="text3-c">
           <Link id="line4-c" to="/addcarsonpost">At 4 A.M. I wake. Thinking</Link>
           <Router>

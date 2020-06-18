@@ -1,0 +1,11 @@
+.carson-add-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 690px;
+    background-image: url("https://i.postimg.cc/VNdHZnQq/Screen-Shot-2020-06-18-at-4-21-39-PM.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
