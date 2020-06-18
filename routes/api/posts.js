@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const postsCtrl = require('../../controllers/posts')
 
-router.get('/', postsCtrl.poemPosts)
+router.get('/', postsCtrl.index)
 
 router.use(require('../../config/auth'))
 

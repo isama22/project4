@@ -50,7 +50,7 @@ class AddCarsonPost extends React.Component {
             >+</button>
           </form>
         </div>
-        <Link className="skip" to="/endpage1"><em>skip</em></Link>
+        <Link className="skip" to="/endpage2"><em>skip</em></Link>
       </div>
     )
   }

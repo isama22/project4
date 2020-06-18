@@ -2,7 +2,7 @@ let Post = require('../models/post')
 
 module.exports = {
     create,
-    poemPosts,
+    index,
     update,
     findPost,
     deleteOne
@@ -14,13 +14,13 @@ async function create(req, res) {
     req.body.creator = req.user.name
     try {
         await Post.create(req.body)
-        poemPosts(req, res)
+        index(req, res)
     } catch (err) {
         res.json({err})
     }
 }
 
-async function poemPosts(req, res) {
+async function index(req, res) {
     const posts = await Post.find({})
     res.json(posts)
 }

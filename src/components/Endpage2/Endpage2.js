@@ -1,6 +1,6 @@
 import React from 'react';
 import './Endpage2.css';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar';
 
 class Endpage2 extends React.Component {
@@ -55,13 +55,13 @@ class Endpage2 extends React.Component {
                       <em className="created-by"> by {c.creator}</em>
                       &nbsp;
                       
-                      {/* {this.props.user._id === c.user && 
+                      {this.props.user._id === c.user && 
                     <Link
                         className="edit-link"
-                      to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}>
+                      to={{ pathname: '/carsoneditpage/' + c._id, state: { carsonPost: c.post } }}>
                       Edit
                   </Link>
-                      } */}
+                      }
                       </p>
                   
                 </article>

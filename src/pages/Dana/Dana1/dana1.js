@@ -1,6 +1,5 @@
 import React from 'react';
 import './dana1.css';
-import dana2 from '../../../pages/Dana/Dana2/dana2';
 
 import { Link } from 'react-router-dom';
 const dana1 = () => {

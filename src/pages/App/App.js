@@ -23,6 +23,7 @@ import * as carsonPostsService from "../../utils/carsonPostsService";
 import AddPost from '../../components/AddPost/AddPost';
 import AddCarsonPost from '../../components/AddCarsonPost/AddCarsonPost';
 import Editpage from '../../components/Editpage/Editpage';
+import EditCarsonPost from '../../components/EditCarsonPost/EditCarsonPost';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 class App extends React.Component {
@@ -81,6 +82,12 @@ class App extends React.Component {
       () => history.push('/endpage2'));
   }
 
+  handleUpdateCarsonPost = async updatedCarsonPostData => {
+    const updatedCarsonPost = await carsonPostsService.update(updatedCarsonPostData)
+    const newcarsonpostsArray = this.state.carsonPosts.map(e =>
+      e._id === updatedCarsonPost._id ? updatedCarsonPost : e)
+    this.setState({ carsonPosts: newcarsonpostsArray })
+  }
 
   async componentDidMount() {
     const posts = await postsService.index();
@@ -89,10 +96,6 @@ class App extends React.Component {
     this.setState({ carsonPosts });
   }
 
-  // async componentDidMount() {
-  //   const carsonPosts = await carsonPostsService.index();
-  //   this.setState({ carsonPosts });
-  // }
 
   render() {
     return (
@@ -116,7 +119,7 @@ class App extends React.Component {
             render={(props) =>
               userService.getUser() ? (
                 <EnterPage {...props} />
-              ) : ( <Redirect to="/login" /> )
+              ) : (<Redirect to="/login" />)
             }
           />
           <Route
@@ -138,15 +141,15 @@ class App extends React.Component {
             exact
             path="/endpage2"
             render={(props) => (
-            <Endpage2 
-            user={this.state.user} 
-            handleAddCarsonPost={this.handleAddCarsonPost}
-            handleChange={this.handleChange}
-            carsonPosts={this.state.carsonPosts}
-            newCarsonPost={this.state.newCarsonPost}
-            formRef={this.formRef}
-            {...props} 
-            />
+              <Endpage2
+                user={this.state.user}
+                handleAddCarsonPost={this.handleAddCarsonPost}
+                handleChange={this.handleChange}
+                carsonPosts={this.state.carsonPosts}
+                newCarsonPost={this.state.newCarsonPost}
+                formRef={this.formRef}
+                {...props}
+              />
             )}
           />
           <Route
@@ -185,7 +188,7 @@ class App extends React.Component {
                   user={this.state.user}
                 />
               ) : (
-                  <Redirect to="/login" /> )
+                  <Redirect to="/login" />)
             )}
           />
           <Route
@@ -231,7 +234,23 @@ class App extends React.Component {
                   user={this.state.user}
                 />
               ) : (
-                  <Redirect to="/login" /> )
+                  <Redirect to="/login" />)
+            )}
+          />
+          <Route
+            path="/carsoneditpage/:id"
+            render={(props) => (
+              userService.getUser() ? (
+                <EditCarsonPost
+                  {...props}
+                  carsonPosts={this.state.carsonPosts}
+                  handleUpdateCarsonPost={this.handleUpdateCarsonPost}
+                  user={this.state.user}
+                  // handleDeletePost={this.handleDeletePost}
+                />
+              ) : (
+                  <Redirect to="/login" />
+                )
             )}
           />
           <Route exact path="/derksen1" component={derksen1} />
