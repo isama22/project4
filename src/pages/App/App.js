@@ -19,10 +19,13 @@ import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import * as postsService from "../../utils/postsService";
 import * as carsonPostsService from "../../utils/carsonPostsService";
+import * as derksenPostsService from "../../utils/derksenPostsService";
 import AddPost from '../../components/AddPost/AddPost';
 import AddCarsonPost from '../../components/AddCarsonPost/AddCarsonPost';
+import AddDerksenPost from '../../components/AddDerksenPost/AddDerksenPost';
 import Editpage from '../../components/Editpage/Editpage';
 import EditCarsonPost from '../../components/EditCarsonPost/EditCarsonPost';
+import EditDerksenPost from '../../components/EditDerksenPost/EditDerksenPost';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 class App extends React.Component {
@@ -35,6 +38,8 @@ class App extends React.Component {
       newPost: "",
       carsonPosts: [],
       newCarsonPost: "",
+      derksenPosts: [],
+      newDerksenPost: "",
       formInvalid: true,
     };
   }
@@ -96,11 +101,36 @@ class App extends React.Component {
     }), () => history.push('/endpage2'));
   }
 
+  handleAddDerksenPost = async (newDerksenPostData, history) => {
+    const newDerksenPost = await derksenPostsService.create(newDerksenPostData);
+    this.setState(state => ({
+      items: [...state.derksenPosts, newDerksenPost]
+    }),
+      () => history.push('/endpage3'));
+  }
+
+  handleUpdateDerksenPost = async updatedDerksenPostData => {
+    const updatedDerksenPost = await derksenPostsService.update(updatedDerksenPostData)
+    const newderksenpostsArray = this.state.derksenPosts.map(e =>
+      e._id === updatedDerksenPost._id ? updatedDerksenPost : e)
+    this.setState({ derksenPosts: newderksenpostsArray })
+  }
+
+  handleDeleteDerksenPost = async (id, history) => {
+    console.log(id)
+    await derksenPostsService.deleteOne(id);
+    this.setState(state => ({
+      derksenPosts: state.derksenPosts.filter(b => b._id !== id)
+    }), () => history.push('/endpage3'));
+  }
+
   async componentDidMount() {
     const posts = await postsService.index();
     this.setState({ posts });
     const carsonPosts = await carsonPostsService.index();
     this.setState({ carsonPosts });
+    const derksenPosts = await derksenPostsService.index();
+    this.setState({ derksenPosts });
   }
 
 
@@ -162,7 +192,17 @@ class App extends React.Component {
           <Route
             exact
             path="/endpage3"
-            render={(props) => <Endpage3 user={this.state.user} {...props} />}
+            render={(props) => (
+              <Endpage3
+                handleAddDerksenPost={this.handleAddDerksenPost}
+                handleChange={this.handleChange}
+                derksenPosts={this.state.derksenPosts}
+                newDerksenPost={this.state.newDerksenPost}
+                formRef={this.formRef}
+                user={this.state.user}
+                {...props}
+              />
+            )}
           />
           <Route
             exact
@@ -263,6 +303,36 @@ class App extends React.Component {
           <Route exact path="/derksen1" component={derksen1} />
           <Route exact path="/derksen2" component={derksen2} />
           <Route exact path="/derksen3" component={derksen3} />
+          <Route
+            exact path="/addderksenpost"
+            render={({ history }) => (
+              userService.getUser() ? (
+                <AddDerksenPost
+                  history={history}
+                  handleAddDerksenPost={this.handleAddDerksenPost}
+                  derksenPosts={this.state.derksenPosts}
+                  user={this.state.user}
+                />
+              ) : (
+                  <Redirect to="/login" />)
+            )}
+          />
+          <Route
+            path="/derkseneditpage/:id"
+            render={(props) => (
+              userService.getUser() ? (
+                <EditDerksenPost
+                  {...props}
+                  derksenPosts={this.state.derksenPosts}
+                  handleUpdateDerksenPost={this.handleUpdateDerksenPost}
+                  user={this.state.user}
+                  handleDeleteDerksenPost={this.handleDeleteDerksenPost}
+                />
+              ) : (
+                  <Redirect to="/login" />
+                )
+            )}
+          />
         </Router>
       </div>
     );

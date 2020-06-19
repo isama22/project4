@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar';
 
 class Endpage2 extends React.Component {
-
   render() {
-
     const { props } = this;
     return (
       <div className="main-div2">

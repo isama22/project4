@@ -1,9 +1,13 @@
 import React from 'react';
 import './EndPage3.css';
+import { Link } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar';
 
-const Endpage3 = (props) => {
-  return (
+class Endpage3 extends React.Component {
+  render() {
+
+    const { props } = this;
+    return (
     <div className="behindmain4">
        <NavBar user={props.user} handleLogout={props.handleLogout}/>
       <br></br>
@@ -39,13 +43,31 @@ const Endpage3 = (props) => {
         <a href="https://www.poetryfoundation.org/poems/146552/in-memory-of-my-heavy-metal-years" target="_blank" rel="noopener noreferrer" id="link">...</a>
         </p>
       </p>
-      <form>
-        <input value="add your own line"/>
-        <button>submit</button>
-      </form>
+      <section>
+              {this.props.derksenPosts.map((d) => (
+                <article key={d.derksenPost}>
+                
+                    <p className="derksen-added-lines">
+                      {d.post}
+                      <em className="created-by"> by {d.creator}</em>
+                      &nbsp;
+                      
+                      {this.props.user._id === d.user && 
+                    <Link
+                        className="edit-link"
+                      to={{ pathname: '/derkseneditpage/' + d._id, state: { derksenPost: d.post } }}>
+                      Edit
+                  </Link>
+                      }
+                      </p>
+                  
+                </article>
+              ))}</section>
+              <p><em className="ep1-footer">click on the ellipsis to see the full original poem</em></p>
       </div>
       </div>
       </div>
   );
+}  
 }
 export default Endpage3;
