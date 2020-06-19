@@ -1,0 +1,10 @@
+.derksen-edit-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 690px;
+    background-image: url("https://i.postimg.cc/9XBw0fy3/Screen-Shot-2020-05-27-at-12-41-22-AM.png");   
+    background-size: cover;
+    background-repeat: no-repeat;
+}
