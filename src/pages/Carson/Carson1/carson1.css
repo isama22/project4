@@ -1,22 +1,20 @@
-#main-c {
+#carson-1-main-div {
     color: white;
     display: flex;
     justify-content: center;
     background-image: url("https://i.postimg.cc/Nf1d546f/Screen-Shot-2020-03-17-at-9-18-42-PM.png");
     height: 1000px;
     background-size: cover;  
-
-    
 }
 
-#text-c {
+#carson-1-text-div {
     margin: 170px;
 }
-#line2-c {
+.carson-link {
     color: white;
     text-decoration: none;
    
 }
-#line2-c:hover {
+.carson-link:hover {
     color: orange;
 }

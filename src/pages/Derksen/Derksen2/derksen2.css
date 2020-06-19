@@ -1,0 +1,12 @@
+#derksen-2-main-div {
+    color: white;
+    display: flex;
+    justify-content: center;
+    background-image: url("https://i.postimg.cc/K8Nk9G6F/Screen-Shot-2020-06-18-at-7-22-17-PM.png");
+    height: 690px;
+    background-size: cover;  
+}
+
+#derksen-2-text-div {
+    margin: 170px;
+}

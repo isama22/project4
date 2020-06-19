@@ -1,16 +1,14 @@
 import React from 'react';
 import './derksen2.css';
-import derksen3 from '../../../pages/Derksen/Derksen3/derksen3';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-const derksen2 = () => {
+import { Link } from 'react-router-dom';
 
+const derksen2 = () => {
   return (
-    <div>
-      <div >
-        <Link to="/derksen3">the barium, the cadmium,</Link>
-        <Router>
-          <Route exact path="/derksen3" component={derksen3} />
-        </Router>
+    <div id="derksen-2-main-div">
+      <div id="derksen-2-text-div">
+      <p>There goes the</p>
+        <p>aluminum, the antimony, the arsenic</p>
+        <Link className="derksen-link" to="/derksen3">the barium, the cadmium,</Link>
       </div>
     </div>
   );

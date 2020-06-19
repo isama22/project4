@@ -6,9 +6,12 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 const derksen3 = () => {
 
   return (
-    <div>
-      <div >
-        <Link to="/addderksenpost">the cesium, the gadolinium</Link>
+    <div id="derksen-3-main-div">
+      <div id="derksen-3-text-div">
+      <p>There goes the</p>
+        <p>aluminum, the antimony, the arsenic</p>
+        <p>the barium, the cadmium,</p>
+        <Link className="derksen-link" to="/addderksenpost">the cesium, the gadolinium</Link>
         <Router>
             <Route exact path="/endpage2" render={(props) => (
               <Endpage3
