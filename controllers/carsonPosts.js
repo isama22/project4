@@ -11,7 +11,7 @@ module.exports = {
 
 async function create(req, res) {
     req.body.user = req.user._id
-    req.body.creator = req.user.name
+    req.body.author = req.user.name
     try {
         await carsonPost.create(req.body)
         index(req, res)

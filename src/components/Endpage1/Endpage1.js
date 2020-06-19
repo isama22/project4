@@ -61,18 +61,18 @@ class Endpage1 extends React.Component {
               >...</a>
             </p>
             <section>
-              {this.props.posts.map((p) => (
-                <article key={p.post}>
+              {this.props.danaPosts.map((p) => (
+                <article key={p.danaPost}>
                 
                     <p className="added-lines">
                       {p.post}
-                      <em className="created-by"> by {p.creator}</em>
+                      <em className="created-by"> by {p.author}</em>
                       &nbsp;
                       
                       {this.props.user._id === p.user && 
                     <Link
                         className="edit-link"
-                      to={{ pathname: '/editpage/' + p._id, state: { post: p.post } }}>
+                      to={{ pathname: '/editpage/' + p._id, state: { danaPost: p.post } }}>
                       Edit
                   </Link>
                       }

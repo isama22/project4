@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/api/users', require('./routes/api/users'));
 app.use(require('./config/auth'));
-app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/danaPosts', require('./routes/api/danaPosts'));
 app.use('/api/carsonPosts', require('./routes/api/carsonPosts'));
 app.use('/api/derksenPosts', require('./routes/api/derksenPosts'));
 

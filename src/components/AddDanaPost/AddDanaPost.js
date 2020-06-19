@@ -1,8 +1,8 @@
 import React from "react";
-import './AddPost.css';
+import './AddDanaPost.css';
 import { Link } from 'react-router-dom'
 
-class AddPost extends React.Component {
+class AddDanaPost extends React.Component {
   state = {
     invalidForm: true,
     formData: { posts: '' }
@@ -20,7 +20,7 @@ class AddPost extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.handleAddPost(this.state.formData, this.props.history)
+    this.props.handleAddDanaPost(this.state.formData, this.props.history)
   }
   render() {
     return (
@@ -56,4 +56,4 @@ class AddPost extends React.Component {
   }
 }
 
-export default AddPost;
+export default AddDanaPost;

@@ -1,8 +1,8 @@
 import React from 'react';
-import './derksen2.css';
+import './Derksen2.css';
 import { Link } from 'react-router-dom';
 
-const derksen2 = () => {
+const Derksen2 = () => {
   return (
     <div id="derksen-2-main-div">
       <div id="derksen-2-text-div">
@@ -14,4 +14,4 @@ const derksen2 = () => {
   );
 }
 
-export default derksen2;
+export default Derksen2;

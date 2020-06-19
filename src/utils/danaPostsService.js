@@ -1,6 +1,6 @@
 import tokenService from './tokenService'
 
-const BASE_URL = '/api/posts'
+const BASE_URL = '/api/danaPosts'
 
 export function index() {
     const options = {
@@ -12,27 +12,27 @@ export function index() {
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
-export function create(post) {
+export function create(danaPost) {
     const options = {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
             'Authorization': 'Bearer ' + tokenService.getToken()
         },
-        body: JSON.stringify(post)
+        body: JSON.stringify(danaPost)
     }
     return fetch(BASE_URL, options).then(res => res.json())
 }
 
-export function update(post) {
-    return fetch(`${BASE_URL}/${post._id}`, {
+export function update(danaPost) {
+    return fetch(`${BASE_URL}/${danaPost._id}`, {
         method: 'PUT',
         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + tokenService.getToken() },
-        body: JSON.stringify(post)
+        body: JSON.stringify(danaPost)
     }).then(res => res.json())
 }
 //second part to update above
-export function findNewPost(id) {
+export function findNewDanaPost(id) {
     console.log(id)
     return fetch(`${BASE_URL}/${id}`, {
         method: 'GET',

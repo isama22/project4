@@ -1,10 +1,10 @@
 import React from 'react';
-import './dana3.css';
+import './Dana3.css';
 import Endpage1 from '../../../components/Endpage1/Endpage1';
-import AddPost from '../../../components/AddPost/AddPost';
+import AddDanaPost from '../../../components/AddDanaPost/AddDanaPost';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const dana3 = () => {
+const Dana3 = () => {
 
   return (
     <div id="main3">
@@ -14,7 +14,7 @@ const dana3 = () => {
       <p>at the ready then subsume their diverging constituent parts</p>
       <div className="link-div">
 
-        <Link className="dana3text" to="/addpost">long ambivalent talks into midnight, all those</Link>
+        <Link className="dana3text" to="/adddanapost">long ambivalent talks into midnight, all those</Link>
         <Router>
           <Route exact path="/endpage1" render={(props) => (
             <Endpage1 
@@ -26,8 +26,8 @@ const dana3 = () => {
             formRef={this.formRef}
             {...props} />
             )} />
-          <Route exact path="/addpost" render={(props) => (
-            <AddPost
+          <Route exact path="/adddanapost" render={(props) => (
+            <AddDanaPost
             handleAddPost={this.handleAddPost}
             posts={this.state.posts}
             user={this.state.user}
@@ -40,4 +40,4 @@ const dana3 = () => {
   );
 }
 
-export default dana3;
+export default Dana3;

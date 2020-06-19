@@ -45,7 +45,7 @@ class Endpage2 extends React.Component {
                 
                     <p className="carson-added-lines">
                       {c.post}
-                      <em className="created-by"> by {c.creator}</em>
+                      <em className="created-by"> by {c.author}</em>
                       &nbsp;
                       
                       {this.props.user._id === c.user && 

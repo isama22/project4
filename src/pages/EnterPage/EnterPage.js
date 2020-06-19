@@ -1,8 +1,8 @@
 import React from 'react';
 import './EnterPage.css';
-import dana1 from '../../pages/Dana/Dana1/dana1';
-import carson1 from '../../pages/Carson/Carson1/carson1';
-import derksen1 from '../../pages/Derksen/Derksen1/derksen1';
+import Dana1 from '../../pages/Dana/Dana1/Dana1';
+import Carson1 from '../../pages/Carson/Carson1/Carson1';
+import Derksen1 from '../../pages/Derksen/Derksen1/Derksen1';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const EnterPage = () => {
@@ -19,9 +19,9 @@ const EnterPage = () => {
           <Link id="p3" to="/derksen1">There goes the</Link>
           
           <Router>
-          <Route exact path="/dana1" component={dana1} />
-          <Route exact path="/carson1" component={carson1} />
-          <Route exact path="/derksen1" component={derksen1} />
+          <Route exact path="/dana1" component={Dana1} />
+          <Route exact path="/carson1" component={Carson1} />
+          <Route exact path="/derksen1" component={Derksen1} />
           </Router>
         </div>
       </div>

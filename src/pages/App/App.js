@@ -2,28 +2,28 @@ import React from "react";
 import "./App.css";
 import Home from "../../pages/Home/Home.js";
 import EnterPage from "../../pages/EnterPage/EnterPage";
-import dana1 from '../../pages/Dana/Dana1/dana1'
-import dana2 from '../../pages/Dana/Dana2/dana2'
-import dana3 from '../../pages/Dana/Dana3/dana3'
-import carson1 from "../../pages/Carson/Carson1/carson1";
-import carson2 from "../../pages/Carson/Carson2/carson2";
-import carson3 from "../../pages/Carson/Carson3/carson3";
-import derksen1 from "../../pages/Derksen/Derksen1/derksen1";
-import derksen2 from "../../pages/Derksen/Derksen2/derksen2";
-import derksen3 from "../../pages/Derksen/Derksen3/derksen3";
+import Dana1 from '../../pages/Dana/Dana1/Dana1'
+import Dana2 from '../../pages/Dana/Dana2/Dana2'
+import Dana3 from '../../pages/Dana/Dana3/Dana3'
+import Carson1 from "../../pages/Carson/Carson1/Carson1";
+import Carson2 from "../../pages/Carson/Carson2/Carson2";
+import Carson3 from "../../pages/Carson/Carson3/Carson3";
+import Derksen1 from "../../pages/Derksen/Derksen1/Derksen1";
+import Derksen2 from "../../pages/Derksen/Derksen2/Derksen2";
+import Derksen3 from "../../pages/Derksen/Derksen3/Derksen3";
 import Endpage1 from "../../components/Endpage1/Endpage1";
 import Endpage2 from "../../components/Endpage2/Endpage2";
 import Endpage3 from "../../components/Endpage3/Endpage3";
 import SignupPage from "../../components/SignupPage/SignupPage";
 import LoginPage from "../../components/LoginPage/LoginPage";
 import userService from "../../utils/userService";
-import * as postsService from "../../utils/postsService";
+import * as danaPostsService from "../../utils/danaPostsService";
 import * as carsonPostsService from "../../utils/carsonPostsService";
 import * as derksenPostsService from "../../utils/derksenPostsService";
-import AddPost from '../../components/AddPost/AddPost';
+import AddDanaPost from '../../components/AddDanaPost/AddDanaPost';
 import AddCarsonPost from '../../components/AddCarsonPost/AddCarsonPost';
 import AddDerksenPost from '../../components/AddDerksenPost/AddDerksenPost';
-import Editpage from '../../components/Editpage/Editpage';
+import EditDanaPost from '../../components/EditDanaPost/EditDanaPost';
 import EditCarsonPost from '../../components/EditCarsonPost/EditCarsonPost';
 import EditDerksenPost from '../../components/EditDerksenPost/EditDerksenPost';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
@@ -34,8 +34,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       user: userService.getUser(),
-      posts: [],
-      newPost: "",
+      danaPosts: [],
+      newDanaPost: "",
       carsonPosts: [],
       newCarsonPost: "",
       derksenPosts: [],
@@ -55,26 +55,26 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   };
 
-  handleAddPost = async (newPostData, history) => {
-    const newPost = await postsService.create(newPostData);
+  handleAddDanaPost = async (newDanaPostData, history) => {
+    const newDanaPost = await danaPostsService.create(newDanaPostData);
     this.setState(state => ({
-      items: [...state.posts, newPost]
+      items: [...state.danaPosts, newDanaPost]
     }),
       () => history.push('/endpage1'));
   }
 
-  handleUpdatePost = async updatedPostData => {
-    const updatedPost = await postsService.update(updatedPostData)
-    const newpostsArray = this.state.posts.map(e =>
-      e._id === updatedPost._id ? updatedPost : e)
-    this.setState({ posts: newpostsArray })
+  handleUpdateDanaPost = async updatedDanaPostData => {
+    const updatedDanaPost = await danaPostsService.update(updatedDanaPostData)
+    const newdanapostsArray = this.state.danaPosts.map(e =>
+      e._id === updatedDanaPost._id ? updatedDanaPost : e)
+    this.setState({ danaPosts: newdanapostsArray })
   }
 
-  handleDeletePost = async (id, history) => {
+  handleDeleteDanaPost = async (id, history) => {
     console.log(id)
-    await postsService.deleteOne(id);
+    await danaPostsService.deleteOne(id);
     this.setState(state => ({
-      posts: state.posts.filter(b => b._id !== id)
+      danaPosts: state.danaPosts.filter(b => b._id !== id)
     }), () => history.push('/endpage1'));
   }
 
@@ -125,8 +125,8 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const posts = await postsService.index();
-    this.setState({ posts });
+    const danaPosts = await danaPostsService.index();
+    this.setState({ danaPosts });
     const carsonPosts = await carsonPostsService.index();
     this.setState({ carsonPosts });
     const derksenPosts = await derksenPostsService.index();
@@ -167,7 +167,7 @@ class App extends React.Component {
                 user={this.state.user}
                 handleAddPost={this.handleAddPost}
                 handleChange={this.handleChange}
-                posts={this.state.posts}
+                danaPosts={this.state.danaPosts}
                 newPost={this.state.newPost}
                 formRef={this.formRef}
                 {...props}
@@ -224,14 +224,17 @@ class App extends React.Component {
               />
             )}
           />
+          <Route exact path="/Dana1" component={Dana1} />
+          <Route exact path="/Dana2" component={Dana2} />
+          <Route exact path="/dana3" component={Dana3} />
           <Route
-            exact path="/addpost"
+            exact path="/adddanapost"
             render={({ history }) => (
               userService.getUser() ? (
-                <AddPost
+                <AddDanaPost
                   history={history}
-                  handleAddPost={this.handleAddPost}
-                  posts={this.state.posts}
+                  handleAddDanaPost={this.handleAddDanaPost}
+                  danaPosts={this.state.danaPosts}
                   user={this.state.user}
                 />
               ) : (
@@ -242,34 +245,21 @@ class App extends React.Component {
             path="/editpage/:id"
             render={(props) => (
               userService.getUser() ? (
-                <Editpage
+                <EditDanaPost
                   {...props}
-                  handleUpdatePost={this.handleUpdatePost}
-                  posts={this.state.posts}
+                  handleUpdateDanaPost={this.handleUpdateDanaPost}
+                  danaPosts={this.state.danaPosts}
                   user={this.state.user}
-                  handleDeletePost={this.handleDeletePost}
+                  handleDeleteDanaPost={this.handleDeleteDanaPost}
                 />
               ) : (
                   <Redirect to="/login" />
                 )
             )}
           />
-          <Route exact path="/dana1" component={dana1} />
-          <Route exact path="/dana2" component={dana2} />
-          <Route
-            exact
-            path="/dana3"
-            render={(props) => (
-              <dana3
-                user={this.state.user}
-                {...props}
-              />
-            )}
-          />
-          <Route exact path="/dana3" component={dana3} />
-          <Route exact path="/carson1" component={carson1} />
-          <Route exact path="/carson2" component={carson2} />
-          <Route exact path="/carson3" component={carson3} />
+          <Route exact path="/Carson1" component={Carson1} />
+          <Route exact path="/Carson2" component={Carson2} />
+          <Route exact path="/Carson3" component={Carson3} />
           <Route
             exact path="/addcarsonpost"
             render={({ history }) => (
@@ -300,9 +290,9 @@ class App extends React.Component {
                 )
             )}
           />
-          <Route exact path="/derksen1" component={derksen1} />
-          <Route exact path="/derksen2" component={derksen2} />
-          <Route exact path="/derksen3" component={derksen3} />
+          <Route exact path="/derksen1" component={Derksen1} />
+          <Route exact path="/derksen2" component={Derksen2} />
+          <Route exact path="/derksen3" component={Derksen3} />
           <Route
             exact path="/addderksenpost"
             render={({ history }) => (

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './Editpage.css';
-import * as postsService from "../../utils/postsService";
+import './EditDanaPost.css';
+import * as danaPostsService from "../../utils/danaPostsService";
 
-class Editpage extends Component {
+class EditDanaPost extends Component {
     constructor(props) {
         super(props)
         console.log(props)
@@ -19,7 +19,7 @@ class Editpage extends Component {
     handleSubmit = e => {
         console.log("word")
         e.preventDefault()
-        this.props.handleUpdatePost(this.state.formData)
+        this.props.handleUpdateDanaPost(this.state.formData)
         this.props.history.push('/endpage1')
     }
 
@@ -33,10 +33,10 @@ class Editpage extends Component {
     }
 
     async componentDidMount() {
-        const foundPost = await postsService.findNewPost(this.props.match.params.id)
-        console.log(foundPost)
+        const foundDanaPost = await danaPostsService.findNewDanaPost(this.props.match.params.id)
+        console.log(foundDanaPost)
         this.setState({
-            formData: foundPost
+            formData: foundDanaPost
         })
     }
 
@@ -71,7 +71,7 @@ class Editpage extends Component {
                             <div className="edit-buttons">
                                 <p 
                                 className="delete"
-                                onClick={() => this.props.handleDeletePost(this.props.match.params.id, this.props.history)}
+                                onClick={() => this.props.handleDeleteDanaPost(this.props.match.params.id, this.props.history)}
                                 >Delete
                                 </p>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -85,4 +85,4 @@ class Editpage extends Component {
     }
 }
 
-export default Editpage;
+export default EditDanaPost;

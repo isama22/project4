@@ -1,9 +1,9 @@
 import React from 'react';
-import './carson2.css';
-import carson3 from '../Carson3/carson3';
+import './Carson2.css';
+import Carson3 from '../Carson3/Carson3';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const carson2 = () => {
+const Carson2 = () => {
 
   return (
     <div id="main2-c">
@@ -12,11 +12,11 @@ const carson2 = () => {
         <p>Night drips its silver tap</p>
         <Link id="line3-c" to="/carson3">down the back.</Link>
         <Router>
-          <Route exact path="/carson3" component={carson3} />
+          <Route exact path="/carson3" component={Carson3} />
         </Router>
       </div>
     </div>
   );
 }
 
-export default carson2;
+export default Carson2;

@@ -1,8 +1,8 @@
 import React from 'react';
-import './carson1.css';
+import './Carson1.css';
 import { Link } from 'react-router-dom';
 
-const carson1 = () => {
+const Carson1 = () => {
   return (
     <div id="carson-1-main-div">
       <div id="carson-1-text-div">
@@ -13,4 +13,4 @@ const carson1 = () => {
   );
 }
 
-export default carson1;
+export default Carson1;

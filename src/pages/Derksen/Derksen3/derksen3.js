@@ -1,9 +1,9 @@
 import React from 'react';
-import './derksen3.css';
+import './Derksen3.css';
 import Endpage3 from '../../../components/Endpage3/Endpage3';
 import AddDerksenPost from '../../../components/AddDerksenPost/AddDerksenPost';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-const derksen3 = () => {
+const Derksen3 = () => {
 
   return (
     <div id="derksen-3-main-div">
@@ -35,4 +35,4 @@ const derksen3 = () => {
   );
 }
 
-export default derksen3;
+export default Derksen3;

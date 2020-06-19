@@ -6,7 +6,7 @@ const derksenPostSchema = new mongoose.Schema({
     post: {
         type: String,
     },
-    creator: String,
+    author: String,
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'

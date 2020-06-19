@@ -1,10 +1,10 @@
 import React from 'react';
-import './carson3.css';
+import './Carson3.css';
 import Endpage2 from '../../../components/Endpage2/Endpage2';
 import AddCarsonPost from '../../../components/AddCarsonPost/AddCarsonPost';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-const carson3 = () => {
+const Carson3 = () => {
 
   return (
     <div className="bgcolor">
@@ -39,4 +39,4 @@ const carson3 = () => {
   );
 }
 
-export default carson3;
+export default Carson3;

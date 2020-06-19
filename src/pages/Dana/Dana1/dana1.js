@@ -1,8 +1,8 @@
 import React from 'react';
-import './dana1.css';
+import './Dana1.css';
 
 import { Link } from 'react-router-dom';
-const dana1 = () => {
+const Dana1 = () => {
 
   return (
     <div id="main">
@@ -14,4 +14,4 @@ const dana1 = () => {
   );
 }
 
-export default dana1;
+export default Dana1;

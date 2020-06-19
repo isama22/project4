@@ -48,7 +48,7 @@ class Endpage3 extends React.Component {
                 
                     <p className="derksen-added-lines">
                       {d.post}
-                      <em className="created-by"> by {d.creator}</em>
+                      <em className="created-by"> by {d.author}</em>
                       &nbsp;
                       
                       {this.props.user._id === d.user && 
