@@ -16,6 +16,7 @@ class Endpage3 extends React.Component {
       <div className="p4">
       <p id="headerp4">
         <strong>In Memory of My Heavy Metal Years</strong>
+        &nbsp;&nbsp;&nbsp;
         <em>Jeff Derksen</em>
       <pre id="body4">{`
         There goes the
