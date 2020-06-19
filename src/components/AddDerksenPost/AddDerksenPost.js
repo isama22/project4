@@ -50,7 +50,7 @@ class AddDerksenPost extends React.Component {
             >+</button>
           </form>
         </div>
-        <Link className="skip" to="/endpage2"><em>skip</em></Link>
+        <Link className="skip" to="/endpage3"><em>skip</em></Link>
       </div>
     )
   }

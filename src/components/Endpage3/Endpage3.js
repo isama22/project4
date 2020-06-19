@@ -16,19 +16,17 @@ class Endpage3 extends React.Component {
       <div className="p4">
       <p id="headerp4">
         <strong>In Memory of My Heavy Metal Years</strong>
-        <br></br><br></br>
         <em>Jeff Derksen</em>
-      <p id="body4">
-        <br></br><br></br>
+      <pre id="body4">{`
         There goes the
         aluminum, the antimony, the arsenic
-        the barium, the cadmium, 
+        the barium, the cadmium,
         the cesium, the gadolinium
         the lead
         the mercury
-        the nickel, the thalium, and 
+        the nickel, the thalium, and
         the tin. 
-        <br></br><br></br>
+        
         There goes that job spraying lawns
         with chemicals, driving the Merc
         three-quarter ton 
@@ -39,9 +37,9 @@ class Endpage3 extends React.Component {
         to stop
         and on the steep
         majesterial streets
-        that afford such views
+        that afford such views`} 
         <a href="https://www.poetryfoundation.org/poems/146552/in-memory-of-my-heavy-metal-years" target="_blank" rel="noopener noreferrer" id="link">...</a>
-        </p>
+      </pre>
       </p>
       <section>
               {this.props.derksenPosts.map((d) => (
@@ -63,6 +61,7 @@ class Endpage3 extends React.Component {
                   
                 </article>
               ))}</section>
+              
               <p><em className="ep1-footer">click on the ellipsis to see the full original poem</em></p>
       </div>
       </div>

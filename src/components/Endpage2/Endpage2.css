@@ -25,4 +25,9 @@
 
 .carson-added-lines {
     color: #6161ff; 
+    margin-left: 53px;
+}
+
+#carson-pre {
+    font-family: Arial, Helvetica, sans-serif;
 }
